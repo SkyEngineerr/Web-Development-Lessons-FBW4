@@ -1,0 +1,26 @@
+@mixin btnSyle($size) {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    letter-spacing: $size * 1px;
+    text-transform: uppercase;
+    background-color:  rgba(128, 255, 255, 0.5);
+    border: 2px solid green;
+    font-size: $size * 10px;
+    @if $size == 3{
+        background-color: green;
+    }@else if
+        $size == 2{
+            background-color: yellow;
+        }
+            @else{
+                    background-color: blue;
+                }
+ }
+ .btn-lg{
+    @include btnSyle(3);
+ }
+ .btn-md{
+    @include btnSyle(2);
+ }
+ .btn-sm{
+    @include btnSyle(1);
+ }

@@ -1,0 +1,11 @@
+
+
+@for $var from 1 to 100 {
+    #{"div:nth-child("+$var+")::after"}{
+        content: $var + ".";
+        
+    }
+}
+
+
+

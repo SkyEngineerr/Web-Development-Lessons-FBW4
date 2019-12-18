@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object1</title>
+</head>
+<body>
+    <p id="demo"></p>
+
+    <script>
+
+        let car = {
+            speed:100,
+            color:'red',
+            gears:'auto',
+            maxSpeed:'240'
+        };
+
+        let article1 = {
+            author:'Eren Yilmaz',
+            title:'Darkness',
+            date:'12.02.2019',
+            displayMethod(){
+               return [this.author, this.title, this.date];
+            }
+        };
+
+        let article2 = {
+            author:'Orhan Pamuk',
+            title:'Darkness',
+            date:'12.02.2019',
+            displayMethod(){
+               return this.author +"</br>" + this.title +"</br>" + this.date
+            }
+        };
+        document.getElementById("demo").innerHTML = article2.displayMethod();
+
+        
+            if(article2.author == 'Orhan Pamuk') {
+                console.log('This is article2')
+            }
+
+        let articles = [article1, article2]
+
+        let articles = [article1, article2]
+        
+        console.log(articles[0])
+        console.log(articles[1])
+        console.log(articles[0].date)
+ 
+         for (i=0; i< articles.length; i++) {
+           if (articles[i].author == 'Eren Yilmaz'){
+             console.log('He is a student in our class')
+           }
+           else {
+             console.log("Orhan Pamuk not our class")
+           }
+         }
+
+         let book1 = {
+         name:'Javascript',
+         author:'John',
+         status:'unread'
+        }
+       let book2 = {
+         name:'HTML',
+         author:'Tom',
+         status:'unread'
+        }
+       let book3 = {
+         name:'CSS',
+         author:'Mark',
+         status:'unread'
+        }
+
+let books =[book1, book2, book3];
+
+function checkBooks (arr, name) {
+  for (i=0; i< arr.length; i++) {
+    if (arr[i].name == name) {
+      arr[i].status = 'read';
+      
+    }
+}
+}
+
+checkBooks (books, 'CSS');
+console.log(book3)
+
+checkBooks (books, 'HTML');
+console.log(books)
+      
+
+
+    </script>
+</body>
+</html>

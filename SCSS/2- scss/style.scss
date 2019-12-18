@@ -1,0 +1,27 @@
+$size: 500px;
+$div1Size: 200px;
+
+
+.container {
+    width: $size/2 + 3;
+    .subdiv{
+        float:left;
+        width: $size - $div1Size;
+    }
+    @if $size==50px{
+        .subdiv2{
+            float:left;
+            width: $div1Size;
+        }
+    }@else{
+        .subdiv2{
+           color:red;
+        }
+    }
+    @for $var from 1 to 10 {
+        #{">p:nth-child("$var")"}{
+            background-color: rgb(10*$var,10*$var,10*$var,);
+            height: 20px * $var;;
+        }
+    }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Task List</title>
+</head>
+<body>
+
+ 
+    number 1: <input id="num1" type="text" name="FirstName" value="12"><br>
+    number 2: <input id="num2" type="text" name="LastName" value="13"><br>
+    <h4 id='myH4'>RESULT:</h4>
+    <button onclick="myFunction()">+</button>
+    <button onclick="myFunction()">-</button>
+    <button onclick="myFunction()">/</button>
+    <button onclick="myFunction()">*</button>
+   
+    
+
+
+
+<script>
+ 
+ let num1 = document.getElementById('num1')
+  let num2 = document.getElementById('num2')
+  let button = document.querySelectorAll('button')
+
+ 
+function myFunction() {
+  let h4 = document.getElementById("myH4");
+  button.forEach(function(item){
+    if(item.textContent == '+') {
+      h4.insertAdjacentHTML("beforeend", `<p>${Number(num1.value) + Number(num2.value)} </p>`);
+    }
+   
+  })
+
+
+}
+
+</script>
+</body>
+</html>

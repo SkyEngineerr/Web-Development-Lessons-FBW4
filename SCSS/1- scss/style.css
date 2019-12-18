@@ -1,0 +1,37 @@
+html {
+  font-size: 62.5%;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  font-size: 18px;
+  height: 20px;
+  background-color: orange;
+}
+
+.container h3 {
+  color: red;
+}
+
+.container h1 {
+  color: gray;
+}
+
+.container > p {
+  color: blue;
+}
+
+.container > p span {
+  color: green;
+}
+
+.container:hover {
+  background-color: yellow;
+}
+/*# sourceMappingURL=style.css.map */

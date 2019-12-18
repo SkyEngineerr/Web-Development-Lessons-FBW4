@@ -1,0 +1,15 @@
+#mouse{
+    width: 100px;
+    height: 200px;
+    position: absolute;
+    top:0;
+    left:0;
+}
+
+#mouse:focus {
+    outline: none;
+}
+
+p {
+    color: red;
+}

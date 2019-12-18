@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vertical And Horizantal Center-1</title>
+</head>
+<style>
+    .square{
+        width: 400px;
+        height: 400px;
+        background-color: orchid;
+        position:absolute; /*it can be fixed too*/
+        left:0; right:0;
+        top:0; bottom:0;
+        margin:auto;
+        max-width:100%;
+        max-height:100%;
+        overflow:auto;
+    }
+
+    .square2{
+        width: 200px;
+        height: 200px;
+        background-color: yellowgreen;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+
+        /* With displayflex */
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .square3{
+        width: 100px;
+        height: 100px;
+        background-color: orangered;
+       
+       
+    }
+</style>
+<body>
+    <div class="square"></div>
+    <div class="square2">
+            <div class="square3"></div>
+    </div>
+    
+</body>
+</html>

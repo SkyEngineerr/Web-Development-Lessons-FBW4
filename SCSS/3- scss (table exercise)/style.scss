@@ -1,0 +1,12 @@
+table {
+    width: 100vw;
+    height: 500px;
+   
+    @for $var from 1 to 10 {
+        #{"tr:nth-child("$var")"}{
+            background-color: darken(lightyellow, 10*$var);
+            
+        }
+    }
+}
+

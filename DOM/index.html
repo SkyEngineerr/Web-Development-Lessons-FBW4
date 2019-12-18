@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        function guessNumber(){
+
+            let randomNumber = Math.floor(Math.random() * 10)
+            let number = ""
+            let count = 0;
+
+            while (number != randomNumber) {
+                number = window.prompt("Enter guess number: ");
+                if (number == randomNumber) {
+                    alert(`Success, the number was ${randomNumber}. Attempts: ${count}`);
+                } else {
+                    alert(`${randomNumber}:: Nope, sorry! Try again!`);
+                    count++
+                }
+            }
+        }
+
+        guessNumber()
+    </script>
+</body>
+
+</html>

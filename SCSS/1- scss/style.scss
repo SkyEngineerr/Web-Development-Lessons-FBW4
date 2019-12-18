@@ -1,0 +1,27 @@
+@import 'setting';
+
+$firstColor: orange;
+$secondColor: black;
+
+.container {
+    font-size: 18px;
+    height:20px;
+    background-color:$firstColor;
+   
+    h3{
+        color: red;
+    }
+    h1{
+        color:gray;
+    }
+    &>p{
+        color:blue;
+        span{
+            color:green;
+        }
+    }
+    &:hover{
+        background-color: yellow;
+    }
+}
+

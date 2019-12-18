@@ -1,0 +1,29 @@
+.slider {
+  height: 850px;
+  width: 1000px;
+  margin: auto;
+  animation: slider 20s;
+  animation-iteration-count: infinite;
+  background-size: cover;
+  animation-fill-mode: backwards;
+}
+
+// animation
+
+@keyframes slider {
+    0% {
+        background-image: url('../images/2.jpg');
+    }
+    25% {
+        background-image: url('../images/3.jpg');
+    }
+    50% {
+        background-image: url('../images/4.jpg');
+    }
+    75% {
+        background-image: url('../images/5.jpg');
+    }
+    100% {
+        background-image: url('../images/2.jpg');
+    }
+}

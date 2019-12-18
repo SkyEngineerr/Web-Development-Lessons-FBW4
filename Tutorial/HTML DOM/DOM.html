@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+</head>
+
+<body>
+    <p><a id="w3r" type="text/html" hreflang="en-us" rel="nofollow" target="_self"
+            href="https://www.w3resource.com/">w3resource</a></p>
+    <button onclick="getAttributes()">Click here to get attributes value</button>
+
+
+    <script>
+        function getAttributes() {
+           
+            let y = document.getElementById("w3r");
+            for (let i =0; i<y.attributes.length; i++) {
+                console.log(y.attributes[i]);
+                console.log(y.attributes[i].nodeName);
+                console.log(y.attributes[i].nodeValue);
+            }
+            
+        }
+
+        getAttributes() 
+
+    </script>
+</body>
+
+</html>

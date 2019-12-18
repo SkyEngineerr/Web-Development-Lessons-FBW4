@@ -1,0 +1,41 @@
+table {
+  width: 100vw;
+  height: 500px;
+}
+
+table tr:nth-child(1) {
+  background-color: #ffffad;
+}
+
+table tr:nth-child(2) {
+  background-color: #ffff7a;
+}
+
+table tr:nth-child(3) {
+  background-color: #ffff47;
+}
+
+table tr:nth-child(4) {
+  background-color: #ffff14;
+}
+
+table tr:nth-child(5) {
+  background-color: #e0e000;
+}
+
+table tr:nth-child(6) {
+  background-color: #adad00;
+}
+
+table tr:nth-child(7) {
+  background-color: #7a7a00;
+}
+
+table tr:nth-child(8) {
+  background-color: #474700;
+}
+
+table tr:nth-child(9) {
+  background-color: #141400;
+}
+/*# sourceMappingURL=style.css.map */
