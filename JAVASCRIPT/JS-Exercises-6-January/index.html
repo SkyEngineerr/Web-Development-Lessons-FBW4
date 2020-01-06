@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<ul id="table">
+
+</ul>
+
+    <script>
+        let guest1 = {
+            name: 'peter',
+            fav: 'kebab'
+        }
+        let guest2 = {
+            name: 'hans',
+            fav: 'doner'
+        }
+        let guest3 = {
+            name: 'jam',
+            fav: 'falafel'
+        }
+
+        let listGuests = [guest1, guest2, guest3]
+        let listDishes = ['hamburger', 'doner', 'kebab']
+
+        function check(listG, listD) {
+            let ul = document.getElementById("table")
+            listG.forEach(function (item) {
+                if (listD.includes(item.fav)) {
+                    let li;
+                    li = document.createElement('li')
+                    li.textContent = `We have "${item.fav}" on our menu, ${item.name}`
+                    ul.appendChild(li)
+                   
+
+                } else {
+                    let li;
+                    li = document.createElement('li')
+                    li.textContent = `We don't have "${item.fav}" on our menu, ${item.name}`
+                    ul.appendChild(li)
+                }
+            })
+        }
+        check(listGuests, listDishes)
+    </script>
+</body>
+
+</html>
