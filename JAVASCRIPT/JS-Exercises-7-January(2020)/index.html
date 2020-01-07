@@ -10,17 +10,19 @@
 
 <body>
 <ul id="allowList">
-    <h1>ALLOW LIST</h1>
+    <h1>SUCCESS LIST</h1>
 
 </ul>
 <ul id="forbiddenList">
-    <h1>FORBIDDEN LIST</h1>
+    <h1>FAILURE LIST</h1>
 </ul>
 
     <script>
         let guest1 = {
             name: 'PETER',
-            age: 42
+            HTML: 70,
+            CSS: 45,
+            JS: 15
         }
         let guest2 = {
             name: 'HANS',
@@ -66,15 +68,15 @@
         }
         let guest9 = {
             name: 'ERVA',
-            HTML: 50,
+            HTML: 10,
             CSS: 45,
             JS: 65
         }
         let guest10 = {
             name: 'SARA',
-            HTML: 50,
+            HTML: 40,
             CSS: 45,
-            JS: 65
+            JS: 15
         }
 
         let listGuests = [guest1, guest2, guest3, guest4, guest5, guest6, guest7, guest8, guest9, guest10]
@@ -84,9 +86,40 @@
             let ul = document.getElementById("allowList")
             let ul2 = document.getElementById("forbiddenList")
             listG.forEach(function (item) {
-                for (course in item) {
-                    console.log(course.CSS.);
+                if (item.HTML >=  50 && item.CSS >= 50 && item.JS >= 50 || item.HTML >=  50 && item.CSS >= 50 && item.JS < 50 || item.HTML >=  50 && item.CSS < 50 && item.JS >= 50 || item.HTML <  50 && item.CSS >= 50 && item.JS >= 50) {
+                    let li;
+                    li = document.createElement('li')
+                    li.innerHTML = `You finished the year, ${item.name}.`
+                    ul.appendChild(li)
                 }
+                else {
+                    if(item.HTML <  50 && item.CSS < 50 && item.JS < 50){
+                        let li;
+                        li = document.createElement('li')
+                        li.innerHTML = `You did not finish the year, ${item.name}. Because you didn't pass these courses: 'HTML' score: ${item.HTML}, 'CSS' score: ${item.CSS} and 'JS' score: ${item.JS}`
+                        ul2.appendChild(li)
+                    }
+                    else if(item.HTML <  50 && item.CSS < 50 && item.JS >= 50) {
+                        let li;
+                        li = document.createElement('li')
+                        li.innerHTML = `You did not finish the year, ${item.name}. Because you didn't pass these courses: 'HTML' score: ${item.HTML}, 'CSS' score: ${item.CSS}`
+                        ul2.appendChild(li)
+                    }
+                    else if(item.HTML <  50 && item.CSS >= 50 && item.JS < 50) {
+                        let li;
+                        li = document.createElement('li')
+                        li.innerHTML = `You did not finish the year, ${item.name}. Because you didn't pass these courses: 'HTML' score: ${item.HTML}, 'JS' score: ${item.JS}`
+                        ul2.appendChild(li)
+                    }
+                    else if(item.HTML >=  50 && item.CSS < 50 && item.JS < 50) {
+                        let li;
+                        li = document.createElement('li')
+                        li.innerHTML = `You did not finish the year, ${item.name}. Because you didn't pass these courses: 'CSS' score: ${item.CSS}, 'JS' score: ${item.JS}`
+                        ul2.appendChild(li)
+                    }
+                    
+                }
+             
             })
         }
         check(listGuests)
