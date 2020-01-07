@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<ul id="allowList">
+    <h1>ALLOW LIST</h1>
+
+</ul>
+<ul id="forbiddenList">
+    <h1>FORBIDDEN LIST</h1>
+</ul>
+
+    <script>
+        let guest1 = {
+            name: 'PETER',
+            age: 42
+        }
+        let guest2 = {
+            name: 'HANS',
+            HTML: 50,
+            CSS: 45,
+            JS: 65
+        }
+        let guest3 = {
+            name: 'EREN',
+            HTML: 50,
+            CSS: 45,
+            JS: 65
+        }
+        let guest4 = {
+            name: 'BETUS',
+            HTML: 50,
+            CSS: 75,
+            JS: 65
+        }
+        let guest5 = {
+            name: 'SEVDE',
+            HTML: 30,
+            CSS: 45,
+            JS: 65
+        }
+        let guest6 = {
+            name: 'MERIC',
+            HTML: 30,
+            CSS: 45,
+            JS: 65
+        }
+        let guest7 = {
+            name: 'RABIA',
+            HTML: 10,
+            CSS: 45,
+            JS: 65
+        }
+        let guest8 = {
+            name: 'SEYMA',
+            HTML: 50,
+            CSS: 45,
+            JS: 65
+        }
+        let guest9 = {
+            name: 'ERVA',
+            HTML: 50,
+            CSS: 45,
+            JS: 65
+        }
+        let guest10 = {
+            name: 'SARA',
+            HTML: 50,
+            CSS: 45,
+            JS: 65
+        }
+
+        let listGuests = [guest1, guest2, guest3, guest4, guest5, guest6, guest7, guest8, guest9, guest10]
+       
+
+        function check(listG) {
+            let ul = document.getElementById("allowList")
+            let ul2 = document.getElementById("forbiddenList")
+            listG.forEach(function (item) {
+                for (course in item) {
+                    console.log(course.CSS.);
+                }
+            })
+        }
+        check(listGuests)
+    </script>
+</body>
+
+</html>
