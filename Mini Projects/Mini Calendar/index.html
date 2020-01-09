@@ -13,7 +13,7 @@
 <body>
 <div class="container ">
     <div class="row">
-        <table id="myTable" class="table table-sm col-4 table-bordered ">
+        <table id="myTable" class="table table-sm table-bordered ">
             <thead class="table-dark ">
             <th colspan="7" class="table-active"><h1 id="bigDate" class="ml-3"></h1></th>
     
@@ -79,23 +79,31 @@
           </table>
          
     </div>
-    <select class="form-control form-control-sm">
-        <option>0</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>6</option>
-        <option>7</option>
-        <option>8</option>
-        <option>9</option>
-        <option>10</option>
-        <option>11</option>
-    
-      </select>
-    <button id="Back" type="button" class="btn btn-dark">Back</button>
-    <button id="Next" type="button" class="btn btn-dark">Next</button>
+    <form>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Select the month:</label>
+            <select id="inputMonth" class="form-control" id="exampleFormControlSelect1">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Write the year:</label>
+            <input id="inputYear" type="number" class="form-control" id="exampleFormControlInput1">
+          </div>
+          <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
 </div>
     
 
