@@ -1,21 +1,30 @@
+const year = new Date().getFullYear();
+const month = new Date().getMonth()
+const day = new Date().getDay()
 
-let oggi = new Date();
-let year = oggi.getFullYear();
+const weekdays = [
+  'Sun',
+  'Mon',
+  'Tue',
+  'Wed',
+  'Thu',
+  'Fri',
+  'Sat'
+];
 
-let oggi2 = new Date()
-let month = oggi2.getMonth()
-
-let oggi3 = new Date()
-let day = oggi3.getDay()
-
-let date = new Date()
-
-console.log(date);
-
+const firstDay = new Date(year, 0, 1).getDay();
+console.log(weekdays[firstDay]);
 
 console.log(month);
 console.log(year);
 console.log(day);
+
+let table = document.getElementById("myTable")
+console.log(table.rows[3]);
+
+// if (weekdays[firstDay] == "Wed") {
+//     table.cells.item(0).innerHTML = '1'
+// }
 
 
 
