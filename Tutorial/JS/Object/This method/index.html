@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let animal = {
+            name: "chicken",
+            legs: 2,
+            calculate: function () {
+                return this.name + ` has ` +  this.legs
+            }
+        }
+
+        let person = {
+            name: "John",
+            birthdate: new Date ('9-10-1994'),
+            calculate: function () {
+                let currentDate = new Date();
+                return this.name + `age is:` + (currentDate.getFullYear() - this.birthdate.getFullYear())
+            }
+        }
+
+        console.log(animal.calculate());
+        console.log(person.calculate());
+    </script>
+</body>
+</html>
