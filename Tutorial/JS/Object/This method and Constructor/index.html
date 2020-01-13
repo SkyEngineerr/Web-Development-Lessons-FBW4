@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let animal = {
+            name: "chicken",
+            legs: 2,
+            calculate: function () {
+                return this.name + ` has ` +  this.legs
+            }
+        }
+
+        let person = {
+            name: "John",
+            birthdate: new Date ('9-10-1994'),
+            calculate: function () {
+                let currentDate = new Date();
+                return this.name + `age is:` + (currentDate.getFullYear() - this.birthdate.getFullYear())
+            }
+        }
+
+        console.log(animal.calculate());
+        console.log(person["calculate"]());
+
+        //PERSON CONSTRUCTOR
+        // Constructor is a function to build object
+        function Person (name, dob) {
+            this.myName = name;
+            this.birthdate = new Date(dob)
+            this.calAge = function(){
+                const diff = Date.now() - this.birthdate.getTime();
+                const ageDate = new Date(diff)
+                return Math.abs(ageDate.getUTCFullYear() - 1970)
+            }
+        }
+
+
+        const trainer = new Person ('John Doe')
+        const trainer2 = new Person('Eren', '6-25-1989')
+        console.log(trainer2);
+        console.log(trainer2.calAge());
+      
+        
+        function Animal (name, legs, sound) {
+            this.animalName = name;
+            this.animalLegs = legs;
+            this.animalSound = sound;
+            this.calLegs = function (otherName) {
+                this.animalName = otherName
+            }
+        }
+
+        const animal1 = new Animal ('Sheep', 4, 'Meeeee')
+        console.log(animal1);
+        animal1.calLegs('Cow')
+        console.log(animal1);
+
+    </script>
+</body>
+</html>
