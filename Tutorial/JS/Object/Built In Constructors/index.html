@@ -30,6 +30,44 @@
        console.log(typeof bool1);
        console.log(typeof bool2);
 
+       //Object
+       const person1 = {name:'Kinan'}
+       const person2 = new Object({name: 'Kinan'})
+       console.log(person1);
+       console.log(person2);
+       console.log(typeof person1);
+       console.log(typeof person2);
+
+       //Arrays
+       const arr1 = [1, 2, 3, 4]
+       const arr2 = new Array(1,2,3,4)
+       console.log(arr1);
+       console.log(arr2);
+       console.log(typeof arr1);
+       console.log(typeof arr2);
+
+       //Regular Expression
+       const re1 = /\w+/
+       const re2 = new RegExp ("\\w+")
+       console.log(re1);
+       console.log(re2);
+       console.log(typeof re1);
+       console.log(typeof re2);
+
+       function Student () {
+            this.name = 'Maria'
+            this.gender = 'Female'
+       }
+
+       let studOne = new Student ()
+       studOne.age = 15
+       let studTwo = new Student ()
+       console.log(studOne);
+       console.log(studTwo);
+
+       //Protype is invisible propery of an object. 
+       //It returns prototype object of a function to which it links to.
+
     </script>
 </body>
 </html>

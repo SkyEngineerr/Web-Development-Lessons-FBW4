@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Student () {
+            this.name = 'Maria'
+            this.gender = 'Female'
+       }
+
+       Student.prototype.age = 15;
+       Student.prototype.sayHi = function (){
+           return `Hi ${this.name}`
+       }
+
+       let studOne = new Student ()
+     
+       for (x in studOne){
+           console.log(x, studOne[x]);
+       }
+       let studTwo = new Student ()
+       console.log(studOne);
+       console.log(studTwo);
+       console.log(studOne.sayHi());
+
+       //Protype is invisible propery of an object. 
+       //It returns prototype object of a function to which it links to.
+
+
+       //Person Constructor
+       
+    </script>
+</body>
+</html>
