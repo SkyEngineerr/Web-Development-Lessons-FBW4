@@ -22,6 +22,7 @@ for (item of operator) {
 
 let plusOp;
 let firstCount;
+let secondCount;
 
 function operatorFunction (e) {
     console.log(e.target.value);

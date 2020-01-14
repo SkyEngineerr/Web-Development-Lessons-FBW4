@@ -70,6 +70,7 @@ let admin = {
                 this.authorities.pop()
             }
         }
+        return this.authorities
     }
 }
 
@@ -78,3 +79,25 @@ admin.addAuthor(1,'eren')
 console.log(admin.authorities);
 console.log(users);
 console.log(guest);
+
+
+function Product(iName, iPrice) {
+    this.name = iName,
+    this.price = iPrice
+    this.getPrice = function(){
+        return this.price
+    }
+}
+
+const p1 = new Product ('iPhone', 1100)
+console.log(p1);
+
+function Food (iName, iPrice, iVegan) {
+    Product.call(this,iName, iPrice) // __proto__ = Product (ikisi ayni sey)
+    this.category = 'food';
+    this.vegan = iVegan;
+}
+
+const p2 = new Food ('salad', 3, true)
+console.log(p2);
+console.log(p2.getPrice());
