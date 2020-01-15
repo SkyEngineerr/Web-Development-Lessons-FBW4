@@ -29,7 +29,8 @@ function keyOutPut (e) {
                 input.value = ""
                 input.value = input.value + '' + e.target.value
             }
-            else {
+            else if (arr[1] == '+') {
+                input.value = ""
                 input.value = input.value + '' + e.target.value
             }
             
@@ -38,10 +39,16 @@ function keyOutPut (e) {
     }
 
     else if(e.target.className == 'operator') {
-        if(arr.length < 3) {
+        if(arr.length < 2) {
             arr.push(input.value)
             arr.push(e.target.value)
             input.value = e.target.value
+        }
+        else if(arr.length == 2) {
+            arr.unshift(parseFloat(arr[0]) + parseFloat(input.value))
+            arr.splice(1)
+            arr.push(e.target.value)
+            input.value = arr[0]
         }
     }
   console.log(arr);
