@@ -25,8 +25,9 @@ function keyOutPut (e) {
             input.value = input.value + '' + e.target.value
         }
         else if (arr.length == 2) {
-            if(input.value[0] == '+'){
-                input.value.slice(0,1)
+            if(input.value == '+'){
+                input.value = ""
+                input.value = input.value + '' + e.target.value
             }
             else {
                 input.value = input.value + '' + e.target.value
