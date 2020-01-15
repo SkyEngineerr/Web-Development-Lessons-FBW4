@@ -23,14 +23,22 @@ for (item of operator) {
 let plusOp;
 let firstCount;
 let secondCount;
+let newArr = []
 
 function operatorFunction (e) {
     console.log(e.target.value);
     plusOp = e.target.value;
+    
     firstCount = input.value
+    if (newArr.length < 3) {
+        newArr.push(input.value)
+    }
+    else {
+
+    }
+    
     input.value = ""
-    console.log(firstCount);
-    console.log(plusOp);
+    
 }
 
 equalSign.addEventListener('click', function equal(e){
