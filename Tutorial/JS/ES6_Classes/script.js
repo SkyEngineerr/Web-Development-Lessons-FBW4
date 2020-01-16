@@ -49,6 +49,10 @@ class Book {
     changePrice (newPrice) {
         this.price = newPrice
     }
+
+    giveType (newType) {
+        this.newType = newType
+    }
 }
 
 let book1 = new Book ('Harry Potter', 'JKR', '12$')
