@@ -80,9 +80,9 @@ console.log(admin.authorities);
 console.log(users);
 console.log(guest);
 
-
+/////////////////////////////////////////////////
 function Product(iName, iPrice) {
-    this.name = iName,
+    this.name = iName
     this.price = iPrice
     this.getPrice = function(){
         return this.price
@@ -101,3 +101,25 @@ function Food (iName, iPrice, iVegan) {
 const p2 = new Food ('salad', 3, true)
 console.log(p2);
 console.log(p2.getPrice());
+
+/////////////////////////////////////////////////
+
+
+function Users2 (username, password)  {
+    this.name = username
+    this.pass = password
+    changePassword = function (newPass) {
+        this.pass = newPass
+    }
+}
+
+const u1 = new Users2 ('sfks', 'realrealreal')
+
+function Guest2 (username, password) {
+    role = "bla bla bla"
+    authorities = ['read']
+    Users2.call(this, username, password)
+}
+
+const g1 = new Guest2('asdas', '12213213')
+console.log(g1);

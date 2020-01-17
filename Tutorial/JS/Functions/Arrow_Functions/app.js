@@ -31,3 +31,15 @@ let sum = (opreand1, opreand2) => opreand1 + opreand2
 let multi = (opreand1, opreand2) => opreand1 * opreand2
 let divide = (opreand1, opreand2) => opreand1 / opreand2
 let minus = (opreand1, opreand2) => opreand1 - opreand2
+
+
+let fruits = ['orange', 'berry', 'banana', 'kiwi', 'apple', 'avocado'];
+ //ARROW FUNCTION used for an ARRAY
+console.log(fruits.map(fruit => fruit == 'banana' ? fruit : ''))
+console.log(fruits.map(fruit => {if(fruit == 'banana'){return fruit} else return ''}))
+console.log(fruits.map(fruit => {if(fruit == 'banana')return fruit; else return ''}))
+console.log(fruits.map(fruit => fruit.length))
+//best usage for arrow function are other 
+//functions to pass them inside as a PARAMETER
+let people = ['Kumar', 'Harris', 'Asmari', 'Navida', 'Julian']
+console.log(people.map(person => person == 'Julia' ? 'German Name' : 'Indian Name'))
