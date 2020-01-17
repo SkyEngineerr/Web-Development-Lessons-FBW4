@@ -25,10 +25,6 @@ for (item of operator) {
 
 
 let arr = []
-let plusSign;
-let minusSign;
-let multipleSign;
-let divideSign;
 
 function operatorFunction (e) {
     console.log(e.target.value);
