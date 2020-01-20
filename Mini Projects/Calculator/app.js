@@ -4,6 +4,7 @@ const operator = document.getElementsByClassName("operator")
 const equalSign = document.getElementById("equal-sign-operator")
 
 let arr = []
+let opArr = []
 
 console.log(input.value);
 
@@ -13,9 +14,22 @@ for (item of button) {
 }
 
 for (item of operator) {
-    item.addEventListener('click', keyOutPut)
+    item.addEventListener('click', operatorOutPut)
 }
 
+function operatorOutPut (e) {
+    if(opArr.length < 1) {
+        input.value = e.target.value
+        opArr.push(e.target.value)
+    }
+    else if (opArr.length >= 1) {
+        input.value = e.target.value
+        opArr.push(e.target.value)
+        opArr.shift()
+
+    }
+    
+}
 
 function keyOutPut (e) {
     //console.log(input.value);
