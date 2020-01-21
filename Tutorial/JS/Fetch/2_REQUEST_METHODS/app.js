@@ -9,4 +9,14 @@ function loadData() {
 
     //OPEN
     xhr.open('GET', 'data.txt', true)
+
+    //onload method
+    xhr.onload = function () {
+        const output = document.getElementById('output')
+        output.innerHTML = this.responseText
+        
+    }
+
+    xhr.send()
 }
+
