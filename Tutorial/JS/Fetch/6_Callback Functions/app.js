@@ -38,7 +38,7 @@ function createPost (post, callback) {
     setTimeout(function(){
         posts.push(post);
         callback()
-    },1000)
+    },2000)
 }
 
 
@@ -49,11 +49,11 @@ function getPosts(){
             output += `<li>${item.body}</li>`
         })
         document.body.innerHTML = output
-    }, 3000)
+    }, 1000)
 }
 
 let p1 = {title: "Post three",
 body: 'This is amazing post three'}
 
-createPost(p1)
-getPosts();
+createPost(p1, getPosts)
+//getPosts();
