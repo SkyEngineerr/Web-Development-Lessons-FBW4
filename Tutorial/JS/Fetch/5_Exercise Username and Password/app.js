@@ -13,6 +13,7 @@ function getUser (e) {
             let response = JSON.parse(this.responseText)
             response.forEach(function(item){
                 if(item.username == username.value && item.password == password.value) {
+
                     const elem = document.createElement('p')
                     elem.innerHTML = `Login Successful. Your name is ${item.name} ${item.lastname}. And your age is: ${item.age}`
                     exp.appendChild(elem)
