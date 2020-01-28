@@ -26,7 +26,10 @@ function clean(item) {
   }
 
   groupAndClean(nails.concat(planks), clean, function() {
-    
+    console.log('helllooooo');
   })
 
+
+
+  
 
