@@ -25,5 +25,21 @@ function callback (err, posts) {
 //http.get("https://jsonplaceholder.typicode.com/posts", callback)
 
 //Get Post
-http.get("https://jsonplaceholder.typicode.com/posts/1", callback)
+//http.get("https://jsonplaceholder.typicode.com/posts/1", callback)
+
+//Create Post
+const data = {
+    title: 'custom title',
+    body: 'custom body'
+}
+
+//Send Post
+//http.post("https://jsonplaceholder.typicode.com/posts", data, callback)
+
+//Update Post
+//http.put("https://jsonplaceholder.typicode.com/posts/1",data,callback)
+
+//Delete the post
+http.delete("https://jsonplaceholder.typicode.com/posts/5", callback)
+
 
