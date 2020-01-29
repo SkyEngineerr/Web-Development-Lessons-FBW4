@@ -1,12 +1,25 @@
 const http = new easyHTTP;
-function callback (posts) {
-    console.log(posts);
+function callback (err, posts) {
+    if(err) {
+       console.log(err); 
+    }
+    else {
+        let p;
+        posts = JSON.parse(posts)
+        let arr = Object.entries(posts)
+        console.log(arr);
+        arr.forEach(element => {
+            p = document.createElement('p');
+            p.innerHTML = element
+            document.body.appendChild(p)
+        });
+    }
 }
 
-function errFunction (err){
-    console.log(err);
-}
 
 //Get Posts
-http.get("https://jsonplaceholder.typicode.com/posts", callback)
+//http.get("https://jsonplaceholder.typicode.com/posts", callback)
+
+//Get Post
+http.get("https://jsonplaceholder.typicode.com/posts/1", callback)
 

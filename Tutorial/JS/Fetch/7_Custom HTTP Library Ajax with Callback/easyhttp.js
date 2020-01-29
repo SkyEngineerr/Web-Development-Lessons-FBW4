@@ -9,7 +9,7 @@ easyHTTP.prototype.get = function (url, callback) {
     this.http.onload = () => {
         if(this.http.status === 200) {
             //console.log(this.http.responseText);
-            callback(this.http.responseText) 
+            callback(null, this.http.responseText) 
         } else {
             callback(`Page not found: ${this.http.status}`)
         }
