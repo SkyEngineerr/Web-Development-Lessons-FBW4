@@ -8,5 +8,5 @@ function errFunction (err){
 }
 
 //Get Posts
-http.get("https://jsonplaceholder.typicode.com/posts", callback, errFunction)
+http.get("https://jsonplaceholder.typicode.com/posts", callback)
 
