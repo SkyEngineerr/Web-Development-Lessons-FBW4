@@ -3,9 +3,14 @@ document.getElementById('button1').addEventListener('click', getText)
 
 console.log(window.fetch);
 function getText() {
-    fetch('local.txt')
+    fetch('local.txxt')
     .then(function(res){
-        console.log(res.text());
+        return res.text()
     })
-    .catch()
+    .then(function(data){
+        console.log(data);
+    })
+    .catch(function(problem) {
+        console.log(problem);
+    })
 }
