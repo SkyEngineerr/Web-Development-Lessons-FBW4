@@ -49,5 +49,22 @@
             .catch(err => reject(err))
         })
     }
+
+    //Make an HTTP DELETE requests
+    delete(url){
+        return new Promise((resolve,reject) => {
+            fetch(url, {
+                method:'DELETE',
+                headers : {
+                    'Content-type' : 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(res => res.json())
+            .then(() => resolve('Done'))
+            .catch(err => reject(`My custom message.. ${err}`))
+        })
+    }
  }
+
 

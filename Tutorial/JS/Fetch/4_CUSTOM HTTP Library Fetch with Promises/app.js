@@ -22,5 +22,10 @@ http.put('https://jsonplaceholder.typicode.com/users/1', user)
 .then(val => console.log(val))
 .catch(er => console.log(er))
 
+//Delete user
+http.put('https://jsonplaceholder.typicode.com/users/1', user)
+.then(val => console.log(val))
+.catch(er => console.log(er))
+
 
 
