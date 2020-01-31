@@ -57,8 +57,7 @@
                 method:'DELETE',
                 headers : {
                     'Content-type' : 'application/json'
-                },
-                body: JSON.stringify(data)
+                }  
             })
             .then(res => res.json())
             .then(() => resolve('Done'))
