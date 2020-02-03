@@ -30,3 +30,19 @@ async function myTest () {
 }
 
 myTest ()
+
+//await literally makes JavaScript wait until the promise settles, and then go on with the result. That doesn’t cost any CPU resources, because the engine can do other jobs in the meantime: execute other scripts, handle events, etc.
+
+async function myFunc () {
+    const promise = new Promise((resolve, reject) => {
+        setTimeout(() => resolve("asddasdsa"), 100);
+    });
+    const error = false;
+    if(!error) {
+        const res = await promise; //Wait until promise is resolved
+    } else {
+        await Promise.reject(new Error('Something went wrong!'))
+    }
+}
+
+myFunc().then(val => console.log(val))
