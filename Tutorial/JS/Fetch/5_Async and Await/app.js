@@ -35,14 +35,29 @@ myTest ()
 
 async function myFunc () {
     const promise = new Promise((resolve, reject) => {
-        setTimeout(() => resolve("asddasdsa"), 100);
+        setTimeout(()=>resolve("asddasdsa"), 100)
     });
     const error = false;
     if(!error) {
-        const res = await promise; //Wait until promise is resolved
+        const res = await promise; //Wait until promise is resolvedr
+        return res
     } else {
         await Promise.reject(new Error('Something went wrong!'))
     }
 }
 
-myFunc().then(val => console.log(val))
+myFunc()
+.then(val => console.log(val))
+.catch(err => console.log(err))
+
+async function getUsers () {
+    //await response of the fetch call
+    const response = await fetch('https://api.github.com/users')
+
+    //Only proceed once its resolved
+    const data = await response.json()
+
+    //Only proceed proceed once the second promise is resolved
+    return data
+}
+getUsers().then(users => console.log(users))
