@@ -33,28 +33,34 @@ const profiles = profileIterator(data)
 document.getElementById('next').addEventListener('click', nextProfile)
 
 //Event Handler : display the next profile
-function nextProfile () {
+function nextProfile(e) {
+  
     const currentProfile =  profiles.next().value
-    document.getElementById('profileDisplay').innerHTML = `
-    <ul class='list-group>
+    if(currentProfile !== undefined) {
+        document.getElementById("profileDisplay").innerHTML = `
+    <ul class="list-group">
         <li class="list-group-item">Name: ${currentProfile.name}</li>
         <li class="list-group-item">age: ${currentProfile.age}</li>
         <li class="list-group-item">gender: ${currentProfile.gender}</li>
         <li class="list-group-item">lookingfor: ${currentProfile.lookingfor}</li>
         <li class="list-group-item">location: ${currentProfile.location}</li>
-    </ul>'`
-    document.getElementById('imageDisplay').innerHTML = `<img src="${currentProfile.image}"`
+    </ul>`
+    document.getElementById('imageDisplay').innerHTML = `<img src="${currentProfile.image}">`} else {
+        //no more profiles
+        window.location.reload()
+    }
 }
 
 //Profile Iterator
-function profileIter (profiles) {
+function profileIterator (profiles) {
     let nextIndex = 0;
 
     return {
         next : function(){
-            return nextIndex < profiles.length?
+            return nextIndex < profiles.length ?
             {value : profiles[nextIndex++], done : false}:
             {done : true}
         }
     }
 }
+
