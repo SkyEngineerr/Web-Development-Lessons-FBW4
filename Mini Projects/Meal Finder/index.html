@@ -11,15 +11,23 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
     />
+    <link rel="stylesheet" href="style.css" />
     <title>Superhero Finder</title>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Find Your SUPERHERO!</h1>
-        <div class="row">
-            <form>
-                <input class="form-control form-control-lg" id="search" type="text" placeholder="Search your superhero">
+    <div class="container" align="center">
+        <img src="Photos/Untitled.jpg" class="img-fluid mt-3" alt="Responsive image">
+        <div class="row col-12 d-flex justify-content-center mt-3" >
+            <form >
+                <div class="input-group mb-3" >
+                    <input type="text" class="form-control" placeholder="Search for your Superhero">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="button" style="background-color:white"><i class="fas fa-search"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-light ml-2"> Choose Randomly</button>
+                </div>
+               
             </form>
         </div>
   
