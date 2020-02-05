@@ -13,8 +13,6 @@ for (item of button) {
 }
 
 function keyOutPut (e) {
-   
-    //console.log(input.value);
     if(input.value == "+" || input.value == "-" || input.value == "/" || input.value == "*"){
         input.value = ""
         input.value = input.value + '' + e.target.value
@@ -32,9 +30,6 @@ function keyOutPut (e) {
 for (item of operator) {
     item.addEventListener('click', operatorFunction)
 }
-
-
-
 
 function operatorFunction (e) {
     

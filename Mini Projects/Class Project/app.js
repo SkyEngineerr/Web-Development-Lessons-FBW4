@@ -8,7 +8,8 @@ function Book (title, author ,isbn) {
 
 //UI Constructor
 function UI(){}
-
+let ui = new UI ()
+console.log(ui);
 //Add Book to List
 UI.prototype.addBookToList = function (book) {
     const list = document.getElementById("book-list")
@@ -26,8 +27,21 @@ UI.prototype.addBookToList = function (book) {
     list.appendChild(row)
 }
 
-//Event Listener
+//Clear Fields Function
+UI.prototype.clearFields = function () {
+    document.getElementById("title").value = ''
+    document.getElementById("author").value = ''
+    document.getElementById("isbn").value = ''
+}
 
+//delete book
+UI.prototype.deleteBook = function(target) {
+    if (target.className === 'delete') {
+        target.parentElement.parentElement.remove()
+    }
+}
+
+//Event Listeners
 document.getElementById("book-form").addEventListener('submit', function (e){
     //Get inputs values
     const title = document.getElementById("title").value
@@ -44,7 +58,21 @@ document.getElementById("book-form").addEventListener('submit', function (e){
     //Add book to list
     ui.addBookToList(book)
 
+    //Clear Fields
+    ui.clearFields();
+
+
+
     e.preventDefault();
 })
 
-console.log('eren');
+////Event listener for delete
+document.getElementById('book-list').addEventListener('click', function (e) {
+    //Int UI 
+    const ui = new UI ()
+    //Delete Book
+    ui.deleteBook(e.target)
+    e.preventDefault()
+    
+})
+
