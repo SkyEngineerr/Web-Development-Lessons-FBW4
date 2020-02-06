@@ -20,11 +20,12 @@ function searchHero(e) {
   // Get search term
   const term = search.value;
   // Check for empty
+
   const proxyurl = "https://cors-anywhere.herokuapp.com/"
-  const url = `http://gateway.marvel.com/v1/public/comics?ts=${Date.now()}&apikey=8b4cb10529415427d58dd88366be9a56&hash=8bd6702a32eefc2c9cd4f8bf8b8e4f40e985c33b`
+  const url2 = `http://gateway.marvel.com/v1/public/comics?ts=${Date.now()}&apikey=8b4cb10529415427d58dd88366be9a56&hash=8bd6702a32eefc2c9cd4f8bf8b8e4f40e985c33b`
   if (term.trim()) {
     console.log("submit calisiyor")
-    fetch(proxyurl+url+term)
+    fetch(proxyurl+marvel+term)
     .then(res => res.text())
     .then(data => {
       console.log(data);
@@ -55,7 +56,7 @@ function searchHero(e) {
             .join('');
       }
       })
-    .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
+    .catch(() => console.log("Can’t access " + marvel + " response. Blocked by browser?"))
     // Clear search text
     search.value = '';
   } else {
@@ -65,5 +66,5 @@ function searchHero(e) {
 
 
 
-// Event listeners
+Event listeners
 submit.addEventListener('submit', searchHero);
