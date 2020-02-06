@@ -1,17 +1,17 @@
-// https://superheroapi.com/api/1158840531118606
-console.log(12)
 const search = document.getElementById('search'),
   submit = document.getElementById('submit'),
   random = document.getElementById('random'),
   heroes = document.getElementById('heroes'),
   resultHeading = document.getElementById('result-heading'),
   single_hero = document.getElementById('single-hero');
-  
+console.log(12);
+//Keys for MARVEL API
+const PRIV_KEY = "8bd6702a32eefc2c9cd4f8bf8b8e4f40e985c33b";
+const PUBLIC_KEY = "8b4cb10529415427d58dd88366be9a56";
 
 
 // Search meal and fetch from API
 function searchHero(e) {
-  
   e.preventDefault();
 
   // Clear single meal
@@ -19,28 +19,33 @@ function searchHero(e) {
 
   // Get search term
   const term = search.value;
-  // Check for empty
 
-  const proxyurl = "https://cors-anywhere.herokuapp.com/"
-  const url2 = `http://gateway.marvel.com/v1/public/comics?ts=${Date.now()}&apikey=8b4cb10529415427d58dd88366be9a56&hash=8bd6702a32eefc2c9cd4f8bf8b8e4f40e985c33b`
+  //Timestampf and hash for Marvel API
+  const ts = new Date().getTime();
+  const hash = CryptoJS.MD5(ts + PRIV_KEY + PUBLIC_KEY).toString();
+
+  // Check for empty
+  const url = 'http://gateway.marvel.com:80/v1/public/characters/1009718';
+
   if (term.trim()) {
     console.log("submit calisiyor")
-    fetch(proxyurl+marvel+term)
-    .then(res => res.text())
-    .then(data => {
-      console.log(data);
-      data = JSON.parse(data)
-      resultHeading.innerHTML = `<h2>Search results for '${term}':</h2>`;
+    console.log(url);
+    $.getJSON(url, {
+        ts: ts,
+        apikey: PUBLIC_KEY,
+        hash: hash
+      })
+      .done(function (data) {
+        console.log(data.data);
+        resultHeading.innerHTML = `<h2>Search results for '${term}':</h2>`;
 
-      if (data.results === null){
-        resultHeading.innerHTML = `<p>There are no search results. Try again!<p>`;
-      }
-      else if (term == 'deadpool') {
-        heroes.innerHTML = `<img src="Photos/deadpool/dp3.png" alt="">`
-      }
-      else{
-        
-        heroes.innerHTML = data.results
+        if (data.results === null) {
+          resultHeading.innerHTML = `<p>There are no search results. Try again!<p>`;
+        } else if (term == 'deadpool') {
+          heroes.innerHTML = `<img src="Photos/deadpool/dp3.png" alt="">`
+        } else {
+
+          heroes.innerHTML = data.results
             .map(
               hero => `
             <div class="col-lg-2 col-md-3 col-6 ">
@@ -52,11 +57,15 @@ function searchHero(e) {
             </div>
           </div>
           `
-            )
-            .join('');
-      }
+          )
+          .join('');
+        }
       })
-    .catch(() => console.log("Can’t access " + marvel + " response. Blocked by browser?"))
+      .fail(function(err){
+        // the error codes are listed on the dev site
+        console.log(err);
+      });
+
     // Clear search text
     search.value = '';
   } else {
@@ -66,5 +75,5 @@ function searchHero(e) {
 
 
 
-Event listeners
+//Event listeners
 submit.addEventListener('submit', searchHero);
