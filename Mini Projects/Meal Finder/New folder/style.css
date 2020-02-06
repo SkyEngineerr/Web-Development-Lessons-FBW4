@@ -2,6 +2,7 @@
     box-sizing: border-box;
   }
 
+
   body {
     background-color: black;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -11,10 +12,3 @@
   #header {
       color:#e23636
   }
-
-  
-  
-  input[type='text'] {
-    width: 300px;
-  }
-  
