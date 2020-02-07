@@ -11,10 +11,13 @@
   #header {
       color:#e23636
   }
-
-  
   
   input[type='text'] {
     width: 300px;
   }
   
+
+  .deneme {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+  }
