@@ -24,19 +24,103 @@
                 <div class="input-group mb-3" >
                     <input type="text" id="search" class="form-control" placeholder="Search...">
                     <div class="input-group-append">
-                      <button id="random" class="btn btn-outline-secondary" type="submit" style="background-color:white"><i class="fas fa-search"></i></button>
+                      <button  class="btn btn-outline-secondary" type="submit" style="background-color:white"><i class="fas fa-search"></i></button>
                     </div>
-                    <button type="button" class="btn btn-light ml-2"> Choose Randomly</button>
+                    <button type="button" class="btn btn-light ml-2" id="random">  Choose Randomly</button>
                 </div>
             </form>
         </div>
         
         <div id="result-heading"></div>
-        <div class="heroes row text-center text-lg-left mt-5" id="heroes">
-          
+        <div class="heroes row mt-5 justify-content-center" id="heroes">
+            <!-- <div class="card text-center" style="width: 100rem;">
+                <div class="row no-gutters">
+                    <div class="col-auto">
+                        <img src="deadpool/dp1.png" class="img-fluid" alt="" style="width: 20rem;">
+                    </div>
+                    <div class="col">
+                        <div class="card-block px-2">
+                            <h3 class="card-title mt-5">HULK</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque magni soluta dolorem at eaque expedita nihil ad iste error veritatis, dolore eius perspiciatis quibusdam, eligendi voluptatibus autem aliquid animi? Tempora iusto ea quas, est maxime beatae enim, quasi vero impedit expedita itaque officia voluptatibus inventore amet provident eligendi temporibus sapiente in similique harum asperiores cum deserunt? Eum quisquam accusamus, unde nemo quidem dicta reiciendis optio et! Ducimus reprehenderit aliquid odit tempore fugit veniam soluta veritatis in, pariatur qui officiis enim ut eum commodi! Aliquid quia repellat rerum. Corporis optio eligendi itaque quis provident repellendus? Hic atque omnis nemo consequatur eos.</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer w-100 text-muted">
+                    Footer stating cats are CUTE little animals
+                </div>
+            </div> -->
         </div>
-        <div id="single-hero"></div>
+        <div class="row mt-5" id="comicSection">
+            <!-- <div class="card-fluid col-lg-4 col-md-3 col-6" >
+                <a href="#"><img src="https://i.ytimg.com/vi/vpQPRoyX-mU/maxresdefault.jpg" class="card-img-top" alt=""></a>
+                <div class="card-body"  style="background-color: white;" >
+                    <h5 class="card-title">HULK</h5>
+                </div>
+                <p style="font-size: 12px; background-color: white;" class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, perferendis magnam sint quae aspernatur illum cum fuga voluptatem architecto libero provident quo veniam inventore velit nostrum mollitia nesciunt vitae non odio repellendus dolore quisquam? Voluptatem delectus, laborum ut odit earum alias ea suscipit labore dolorum aliquid maxime maiores hic facere. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates est incidunt nobis veniam ex magni earum distinctio expedita quidem inventore adipisci soluta vero eaque, nisi doloribus deleniti quia recusandae sequi iste iure doloremque voluptatem obcaecati. Facilis nihil doloribus dolore, dolorum delectus ut fugiat aliquid. Earum, debitis eveniet! Ut minus officiis fugiat ipsum dolore commodi officia illum repellendus reiciendis nostrum, eos ducimus laborum nobis facilis enim consequuntur aperiam tempora molestias asperiores, tempore ullam accusamus nulla! Assumenda veritatis nulla libero dolor consectetur sit hic quaerat, reiciendis molestias distinctio eligendi porro temporibus provident quibusdam eveniet repellat nostrum perspiciatis impedit voluptates placeat quos molestiae?</p>
+            </div>
+            <div class="card-fluid col-lg-4 col-md-3 col-6" >
+                <a href="#"><img src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/marvelultimatealliance3_lob_crd_02.jpg" class="card-img-top" alt=""></a>
+                <div class="card-body" style="background-color: white;">
+                    <h5 class="card-title">DEEDPOOL</h5>
+                </div>
+                <p style="font-size: 12px; background-color: white;" class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates est incidunt nobis veniam ex magni earum distinctio expedita quidem inventore adipisci soluta vero eaque, nisi doloribus deleniti quia recusandae sequi iste iure doloremque voluptatem obcaecati. Facilis nihil doloribus dolore, dolorum delectus ut fugiat aliquid. Earum, debitis eveniet! Ut minus officiis fugiat ipsum dolore commodi officia illum repellendus reiciendis nostrum, eos ducimus laborum nobis facilis enim consequuntur aperiam tempora molestias asperiores, tempore ullam accusamus nulla! Assumenda veritatis nulla libero dolor consectetur sit hic quaerat, reiciendis molestias distinctio eligendi porro temporibus provident quibusdam eveniet repellat nostrum perspiciatis impedit voluptates placeat quos molestiae?</p>
+            </div> -->
 
+
+
+
+            <!-- <div class="card-fluid col-lg-3 col-md-3 col-6" style="width: 18rem;">
+                <img class="card-img-top" src="https://i.ytimg.com/vi/vpQPRoyX-mU/maxresdefault.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <div class="card-fluid col-lg-4 col-md-3 col-6" style="width: 18rem;">
+                <img class="card-img-top" src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/marvelultimatealliance3_lob_crd_02.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+      
+            <div class="card-fluid col-lg-4 col-md-3 col-6" style="width: 18rem;">
+                <img class="card-img-top" src="https://i.ytimg.com/vi/vpQPRoyX-mU/maxresdefault.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <div class="card-fluid col-lg-4 col-md-3 col-6" style="width: 18rem;">
+                <img class="card-img-top" src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/marvelultimatealliance3_lob_crd_02.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <div class="card-fluid col-lg-4 col-md-3 col-6" style="width: 18rem;">
+                <img class="card-img-top" src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/marvelultimatealliance3_lob_crd_02.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <div class="card-fluid col-lg-4 col-md-3 col-6" style="width: 18rem;">
+                <img class="card-img-top" src="https://i.ytimg.com/vi/vpQPRoyX-mU/maxresdefault.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <div class="card-fluid col-lg-4 col-md-3 col-6" style="width: 18rem;">
+                <img class="card-img-top" src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/marvelultimatealliance3_lob_crd_02.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <div class="card-fluid col-lg-4 col-md-3 col-6" style="width: 18rem;">
+                <img class="card-img-top" src="https://i.ytimg.com/vi/vpQPRoyX-mU/maxresdefault.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div> -->
+
+        </div>
       </div>
   
       <script

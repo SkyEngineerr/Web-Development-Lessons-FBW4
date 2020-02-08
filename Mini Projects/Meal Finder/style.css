@@ -8,6 +8,8 @@
     margin: 0;
   }
 
+
+
   #header {
       color:#e23636
   }
@@ -17,7 +19,39 @@
   }
   
 
-  .deneme {
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%);
-  }
+  .flex-column {
+    max-width: 260px;
+}
+
+/* .img-fluid {
+    margin: 5px;
+} */
+
+.scale {
+    transform: scaleY(1.05);
+    padding-top: 5px; 
+}
+
+#comicCards {
+  background: white;
+  background-clip: content-box;
+}
+
+
+a:link, 
+a:visited {
+    color: #ED462F;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+}
+
+a:hover,
+a:active {
+    color: white;
+    background-color: #ED462F;
+    box-shadow: 0 1rem 2rem rgba(black, .4);
+    transform: rotate(5deg) scale(1.2);
+    padding: 2px;
+    /* -webkit-transform: rotate(5deg) scale(1.3); */
+}
