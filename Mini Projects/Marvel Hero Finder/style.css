@@ -8,24 +8,10 @@
     margin: 0;
   }
 
-
-
-  #header {
-      color:#e23636
-  }
-  
   input[type='text'] {
     width: 300px;
   }
   
-
-  .flex-column {
-    max-width: 260px;
-}
-
-/* .img-fluid {
-    margin: 5px;
-} */
 
 .scale {
     transform: scaleY(1.05);
@@ -36,6 +22,7 @@
   background: white;
   background-clip: content-box;
 }
+
 
 
 a:link, 

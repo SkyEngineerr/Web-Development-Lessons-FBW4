@@ -6,7 +6,11 @@ const search = document.getElementById('search'),
   heroes = document.getElementById('heroes'),
   resultHeading = document.getElementById('result-heading'),
   comicSection = document.getElementById('comicSection');
-console.log(heroes);
+  loading = document.getElementById("loading")
+
+
+//Display of loading screen was defined 'none'
+loading.style.display = "none"
 
 
 //Keys for MARVEL API
@@ -17,34 +21,41 @@ const hash = CryptoJS.MD5(ts + PRIV_KEY + PUBLIC_KEY).toString();
 
 // Searching the heroes or a hero and fetch from API
 function searchHero(e) {
-  e.preventDefault();
-
-  // Clear single meal
+  // Clear sections
   comicSection.innerHTML = '';
   heroes.innerHTML = '';
 
   // Get search term
   const term = search.value;
 
-  // Check input value whether empty or not
-  if (term.trim()) {
+  e.preventDefault();
 
-    //get users
-    http.get(`https://gateway.marvel.com/v1/public/characters?nameStartsWith=${term}&ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}`)
-      .then(val => {
-        const heroesJS = val.data.results
-        let num = 1
+  function loader() {
+    setTimeout(function () {
+      loading.style.display = "block";
+    }, 10);
+    setTimeout(function () {
+      loading.style.display = "none";
 
-        if (heroesJS.length == 0) {
-          resultHeading.innerHTML = `<p>There are no search results. Try again!<p>`;
-          
-        } else if (term == 'deadpool') {
-          heroes.innerHTML = `<img src="deadpool/dp1.png" class="img-fluid" alt="" style="width:55rem;">`
-        } else{
-          for (hero of heroesJS) {
+      // Check input value whether empty or not
+      if (term.trim()) {
 
-            if (hero.description == "" && hero.thumbnail.path.includes("image")){ 
-              heroes.innerHTML += `
+        //get users
+        http.get(`https://gateway.marvel.com/v1/public/characters?nameStartsWith=${term}&ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}`)
+          .then(val => {
+            const heroesJS = val.data.results
+            let num = 1
+
+            if (heroesJS.length == 0) {
+              resultHeading.innerHTML = `<p>There are no search results. Try again!<p>`;
+
+            } else if (term == 'deadpool') {
+              heroes.innerHTML = `<img src="https://media0.giphy.com/media/t774Y478EoCrX6cCie/source.gif" class="img-fluid" alt="" style="width:55rem;">`
+            } else {
+              for (hero of heroesJS) {
+                console.log(hero)
+                if (hero.description == "" && hero.thumbnail.path.includes("image")) {
+                  heroes.innerHTML += `
               <div class="card m-2" style="width:18rem;" data-heroID="${hero.id}">
                 <img class="card-img-top" src="Unknown avatars/${num}.jpg"  style="height:17rem;">
                 <div class="card-body">
@@ -54,10 +65,9 @@ function searchHero(e) {
                 </div>
               </div>
               `
-              num++
-            }
-            else if (hero.description == "") {   
-              heroes.innerHTML += `
+                  num++
+                } else if (hero.description == "") {
+                  heroes.innerHTML += `
               <div class="card m-2" style="width:18rem;" data-heroID="${hero.id}">
                 <img class="card-img-top" src="${hero.thumbnail.path + '.' + hero.thumbnail.extension}"  style="height:17rem;">
                 <div class="card-body">
@@ -67,50 +77,55 @@ function searchHero(e) {
                 </div>
               </div>
               `
-            }
-            else {
-              heroes.innerHTML += `
-              <div class="card m-2" style="width:18rem;" data-heroID="${hero.id}">
+                } else {
+                  heroes.innerHTML += `
+              <div class="card m-2 overflow-hidden" style="width:18rem;" data-heroID="${hero.id}">
                 <img class="card-img-top" src="${hero.thumbnail.path + '.' + hero.thumbnail.extension}"  style="height:17rem;">
                 <div class="card-body">
                   <h5 class="card-title">${hero.name}</h5>
-                  <p class="card-text" style="font-size:1vh">${hero.description}</p>
+                  <p class="card-text " style="font-size:1vh">${hero.description}</p>
                   <a href="#" class="btn btn-primary">See Profile</a>
                 </div>
               </div>
               `
-            }   
-          }     
-        }
-      })
-      .catch(er => console.log(er))
-    // Clear search text
-    search.value = '';
-  } else {
-    alert('Please enter a search term');
+                }
+              }
+            }
+          })
+          .catch(er => console.log(er))
+        // Clear search text
+        search.value = '';
+      } else {
+        alert('Please enter a search term');
+      }
+
+    }, 100);
   }
+  loader()
+
+
 }
 
 //Random number function for random click button
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min; 
+  return Math.floor(Math.random() * (max - min)) + min;
 }
 
 //Get random hero from API
-function randomHero (e) {
+function randomHero(e) {
   let randomID = getRandomInt(1009146, 1011143)
   console.log(randomID)
   comicSection.innerHTML = ''
-  let fetchNow = function () {http.get(`https://gateway.marvel.com/v1/public/characters/${randomID}?&ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}`)
+  let fetchNow = function () {
+    http.get(`https://gateway.marvel.com/v1/public/characters/${randomID}?&ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}`)
       .then(val => {
         if (val.code == 404) {
           randomID = getRandomInt(1009146, 1011143)
           console.log(randomID)
           fetchNow()
-        }
-        else {
+        } else {
           const hero = val.data.results[0]
           if (hero.description == "") {
             heroes.innerHTML = `
@@ -121,8 +136,8 @@ function randomHero (e) {
                         </div>
                         <div class="col text-left">
                             <div class="card-block px-2">
-                                <h3 class="card-title mt-3">${hero.name}</h3>
-                                <p class="card-text">There is no information about "${hero.name}" in our database. If you want to get some information about the hero, you can visit "https://wwww.marvel.com"</p>
+                                <h3 class="card-title mt-3 ml-5">${hero.name}</h3>
+                                <p class="card-text mt-3 ml-3">There is no information about "${hero.name}" in our database. If you want to get some information about the hero, you can visit "https://wwww.marvel.com"</p>
                             </div>
                             <div class="card-footer w-100 text-muted text-right" style="bottom:0; position:absolute;">
                                 Data provided by Marvel. © 2020 Marvel
@@ -130,8 +145,7 @@ function randomHero (e) {
                         </div>
                     </div>
               </div>`
-          }
-          else {
+          } else {
             heroes.innerHTML = `
             <div class="card text-center" style="width: 100rem; ">
                     <div class="row no-gutters">
@@ -154,22 +168,22 @@ function randomHero (e) {
 
         //Print all comics bottom of the hero section
         http.get(`https://gateway.marvel.com/v1/public/characters/${randomID}/comics?format=comic&ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}`)
-      .then(val => {
-        const comics = val.data.results
-        console.log(val.data)
-        for(item of comics) {
-          let charList = []
-          let creatorList = []
-          for (element of item.characters.items) {
-            charList.push(element.name)
-          }
-          for (element of item.creators.items) {
-            creatorList.push(element.name)
-          }
-          console.log(item)
-          comicSection.innerHTML += `
+          .then(val => {
+            const comics = val.data.results
+            console.log(val.data)
+            for (item of comics) {
+              let charList = []
+              let creatorList = []
+              for (element of item.characters.items) {
+                charList.push(element.name)
+              }
+              for (element of item.creators.items) {
+                creatorList.push(element.name)
+              }
+              console.log(item)
+              comicSection.innerHTML += `
           <div class="card-fluid col-lg-4 col-md-3 col-12 h-100 mt-3" id="comicCards">
-            <a href="#"><img src="${item.thumbnail.path+'.'+item.thumbnail.extension}" class="card-img-top" alt="" ></a>
+            <a id="comic_card" href="#"><img src="${item.thumbnail.path+'.'+item.thumbnail.extension}" class="card-img-top" alt="" ></a>
             <div class="card-body" style="height:30rem;">
               <h5 class="card-title">${item.title}</h5>
               <p style="font-size: 12px;" class="card-text mb-0">${item.description}</p>
@@ -180,67 +194,67 @@ function randomHero (e) {
               </div>
             </div>
           </div>`
-          charlist = []
-          creatorList = []
-        }
-       
-      })
-      .catch(er => console.log(er))
+              charlist = []
+              creatorList = []
+            }
+
+          })
+          .catch(er => console.log(er))
 
       })
       .catch(er => console.log(er))
   }
-      fetchNow()
+  fetchNow()
 
-      
-    // Clear search text
-    search.value = '';
-} 
+
+  // Clear search text
+  search.value = '';
+}
 
 //Get Hero By ID
-function getHeroById(heroID){
+function getHeroById(heroID) {
   heroes.innerHTML = '';
   comicSection.innerHTML = '';
   const heroid = heroID
   http.get(`https://gateway.marvel.com/v1/public/characters/${heroid}?&ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}`)
-  .then(val => {
-    const hero = val.data.results[0]
-    heroes.innerHTML = `
-        <div class="card text-center" style="width: 100rem; ">
-                <div class="row no-gutters">
-                    <div class="col-auto">
-                        <img src="${hero.thumbnail.path + '.' + hero.thumbnail.extension}" class="img-fluid" alt="" style="width: 20rem;">
-                    </div>
-                    <div class="col text-left">
-                        <div class="card-block px-2">
-                            <h3 class="card-title mt-3">${hero.name}</h3>
-                            <p class="card-text">${hero.description}</p>
+    .then(val => {
+      const hero = val.data.results[0]
+      heroes.innerHTML = `
+            <div class="card text-center" style="width: 100rem; ">
+                    <div class="row no-gutters">
+                        <div class="col-auto">
+                            <img src="${hero.thumbnail.path + '.' + hero.thumbnail.extension}" class="img-fluid" alt="" style="width: 20rem;">
+                        </div>
+                        <div class="col text-left">
+                            <div class="card-block px-2">
+                                <h3 class="card-title mt-3">${hero.name}</h3>
+                                <p class="card-text">There is no information about "${hero.name}" in our database. If you want to get some information about the hero, you can visit "https://wwww.marvel.com"</p>
+                            </div>
+                            <div class="card-footer w-100 text-muted text-right" style="bottom:0; position:absolute;">
+                                Data provided by Marvel. © 2020 Marvel
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="card-footer w-100 text-muted text-right">
-                  Data provided by Marvel. © 2020 Marvel
-                </div>
-          </div>`
-  })
-  .catch(er => console.log(er))
+              </div>`
+    })
+    .catch(er => console.log(er))
   http.get(`https://gateway.marvel.com/v1/public/characters/${heroid}/comics?format=comic&ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}`)
-      .then(val => {
-        const comics = val.data.results
-        console.log(val.data)
-        for(item of comics) {
-          let charList = []
-          let creatorList = []
-          for (element of item.characters.items) {
-            charList.push(element.name)
-          }
-          for (element of item.creators.items) {
-            creatorList.push(element.name)
-          }
-          console.log(item)
-          comicSection.innerHTML += `
+    .then(val => {
+      const comics = val.data.results
+      console.log(val.data)
+      for (item of comics) {
+        let charList = []
+        let creatorList = []
+        for (element of item.characters.items) {
+          charList.push(element.name)
+        }
+        for (element of item.creators.items) {
+          creatorList.push(element.name)
+        }
+        console.log(item)
+        comicSection.innerHTML += `
           <div class="card-fluid col-lg-4 col-md-3 col-12 h-100 mt-3" id="comicCards">
-            <a href="#"><img src="${item.thumbnail.path+'.'+item.thumbnail.extension}" class="card-img-top" alt="" ></a>
+            <a id="comic_card" href="#"><img src="${item.thumbnail.path+'.'+item.thumbnail.extension}" class="card-img-top" alt="" ></a>
             <div class="card-body" style="height:30rem;">
               <h5 class="card-title">${item.title}</h5>
               <p style="font-size: 12px;" class="card-text mb-0">${item.description}</p>
@@ -251,12 +265,12 @@ function getHeroById(heroID){
               </div>
             </div>
           </div>`
-          charlist = []
-          creatorList = []
-        }
-       
-      })
-      .catch(er => console.log(er))
+        charlist = []
+        creatorList = []
+      }
+
+    })
+    .catch(er => console.log(er))
 }
 
 
@@ -268,7 +282,7 @@ random.addEventListener('click', randomHero);
 
 
 
-heroes.addEventListener('click',  e => {
+heroes.addEventListener('click', e => {
   const heroID = e.path[1].getAttribute('data-heroID')
   getHeroById(heroID)
 })
