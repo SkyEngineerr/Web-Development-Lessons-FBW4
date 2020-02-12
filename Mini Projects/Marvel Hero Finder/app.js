@@ -7,7 +7,8 @@ const search = document.getElementById('search'),
   resultHeading = document.getElementById('result-heading'),
   comicSection = document.getElementById('comicSection');
   loading = document.getElementById("loading")
-
+  
+let linkList;
 
 //Display of loading screen was defined 'none'
 loading.style.display = "none"
@@ -24,7 +25,7 @@ function searchHero(e) {
   // Clear sections
   comicSection.innerHTML = '';
   heroes.innerHTML = '';
-  resultHeading.innerHTML = '';
+  // resultHeading.innerHTML = '';
 
   // Get search term
   const term = search.value;
@@ -41,56 +42,62 @@ function searchHero(e) {
       // Check input value whether empty or not
       if (term.trim()) {
         //get users
-        http.get(`https://gateway.marvel.com/v1/public/characters?nameStartsWith=${term}&ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}`)
+        http.get(`https://gateway.marvel.com/v1/public/characters?nameStartsWith=${term}&ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&limit=100`)
           .then(val => {
             const heroesJS = val.data.results
             let num = 1
 
             if (heroesJS.length == 0) {
-              resultHeading.innerHTML = `<p>There are no search results. Try again!<p>`;
-
+              resultHeading.innerHTML = `<h4 class="mt-2 mb-0" style="color: white;">There is no character starting with "${${term}}"</h4>`;
             } else if (term == 'deadpool') {
               heroes.innerHTML = `<img src="https://media0.giphy.com/media/t774Y478EoCrX6cCie/source.gif" class="img-fluid" alt="" style="width:55rem;">`
             } else {
               for (hero of heroesJS) {
-                console.log(hero)
+    
                 if (hero.description == "" && hero.thumbnail.path.includes("image")) {
+                  resultHeading.innerHTML = `<h4 class="mt-2 mb-0" style="color: white;">Found ${heroesJS.length} characters starting with "${term}":</h4>`
                   heroes.innerHTML += `
-              <div class="card m-2" style="width:18rem;" data-heroID="${hero.id}">
+              <div class="card m-2" style="width:18rem;">
                 <img class="card-img-top" src="Unknown avatars/${num}.jpg"  style="height:17rem;">
                 <div class="card-body">
                   <h5 class="card-title">${hero.name}</h5>
                   <p class="card-text" style="font-size:10px">There is no information about the hero. If you want to get some information about the hero, please search on Google or Wikipedia.</p>
                   
                 </div>
-                <div class="card-footer w-100" style="bottom:0;">
+                <div class="card-footer w-100" style="bottom:0;" data-heroID="${hero.id}">
                   <a href="#" class="btn btn-primary">See Profile</a>
                 </div>
               </div>
               `
-                  num++
+                  if(num < 17) {
+                    num++
+                  } else {
+                    num = 1
+                  }
                 } else if (hero.description == "") {
+                  resultHeading.innerHTML = `<h4 class="mt-2 mb-0" style="color: white;">Found ${heroesJS.length} characters starting with "${term}":</h4>`
                   heroes.innerHTML += `
-              <div class="card m-2" style="width:18rem;" data-heroID="${hero.id}">
+              <div class="card m-2" style="width:18rem;">
                 <img class="card-img-top" src="${hero.thumbnail.path + '.' + hero.thumbnail.extension}"  style="height:17rem;">
                 <div class="card-body">
                   <h5 class="card-title">${hero.name}</h5>
                   <p class="card-text" style="font-size:10px">There is no information about the hero. If you want to get some information about the hero, please search on Google or Wikipedia.</p>
                 </div>
-                <div class="card-footer w-100" style="bottom:0;">
-                  <a href="#" class="btn btn-primary">See Profile</a>
+                <div class="card-footer w-100" style="bottom:0;" data-heroID="${hero.id}">
+                  <a href="#" class="btn btn-primary" >See Profile</a>
                 </div>
               </div>
               `
                 } else {
+                  resultHeading.innerHTML = `<h4 class="mt-2 mb-0" style="color: white;">Found ${heroesJS.length} characters starting with "${term}":</h4>`
                   heroes.innerHTML += `
-              <div class="card m-2 overflow-hidden" style="width:18rem;" data-heroID="${hero.id}">
+              <div class="card m-2 overflow-hidden" style="width:18rem;">
                 <img class="card-img-top" src="${hero.thumbnail.path + '.' + hero.thumbnail.extension}"  style="height:17rem;">
                 <div class="card-body">
                   <h5 class="card-title">${hero.name}</h5>
                   <p class="card-text " style="font-size:10px">${hero.description}</p>
                 </div>
-                <div class="card-footer w-100" style="bottom:0;">
+                <div class="card-footer w-100" style="bottom:0;" data-heroID="${hero.id}">
                   <a href="#" class="btn btn-primary">See Profile</a>
                 </div>
               </div>
@@ -98,6 +105,14 @@ function searchHero(e) {
                 }
               }
             }
+
+            //Add event listeners all of <a> elements
+            linkList = document.getElementsByClassName('btn-primary')
+            for (item of linkList) {
+              item.addEventListener('click', bridgeToSingleElement)
+            }
+            console.log(linkList);
+            //deneme.addEventListener('click', deneme2)
           })
           .catch(er => console.log(er))
         // Clear search text
@@ -106,7 +121,7 @@ function searchHero(e) {
         alert('Please enter a search term');
       }
 
-    }, 2100);
+    }, 100);
   }
   loader()
 }
@@ -121,7 +136,7 @@ function getRandomInt(min, max) {
 //Get random hero from API
 function randomHero(e) {
   let randomID = getRandomInt(1009146, 1011143)
-  console.log(randomID)
+  
   comicSection.innerHTML = ''
   resultHeading.innerHTML = ''
 
@@ -174,9 +189,10 @@ function randomHero(e) {
         }
 
         //Print all comics bottom of the hero section
-        http.get(`https://gateway.marvel.com/v1/public/characters/${randomID}/comics?format=comic&ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}`)
+        http.get(`https://gateway.marvel.com/v1/public/characters/${randomID}/comics?format=comic&ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&limit=20`)
           .then(val => {
             const comics = val.data.results
+            console.log(comics);
             console.log(val.data)
             for (item of comics) {
               let charList = []
@@ -187,11 +203,11 @@ function randomHero(e) {
               for (element of item.creators.items) {
                 creatorList.push(element.name)
               }
-              console.log(item)
+              
               comicSection.innerHTML += `
           <div class="card-fluid col-lg-4 col-md-3 col-12 h-100 mt-3" id="comicCards">
-            <a id="comic_card" href="#"><img src="${item.thumbnail.path+'.'+item.thumbnail.extension}" class="card-img-top" alt="" ></a>
-            <div class="card-body" style="height:30rem;">
+            <a id="comic_card" href="#"><img src="${item.thumbnail.path+'.'+item.thumbnail.extension}" class="card-img-top" alt="" style="height:34rem"></a>
+            <div class="card-body" style="height:28rem;">
               <h5 class="card-title">${item.title}</h5>
               <p style="font-size: 12px;" class="card-text mb-0">${item.description}</p>
               <p style="font-size: 12px;" class="card-text text-muted mt-1 ">Characters: ${charList} </p>
@@ -260,11 +276,11 @@ function getHeroById(heroID) {
         for (element of item.creators.items) {
           creatorList.push(element.name)
         }
-        console.log(item)
+        
         comicSection.innerHTML += `
           <div class="card-fluid col-lg-4 col-md-3 col-12 h-100 mt-3" id="comicCards">
-            <a id="comic_card" href="#"><img src="${item.thumbnail.path+'.'+item.thumbnail.extension}" class="card-img-top" alt="" ></a>
-            <div class="card-body" style="height:30rem;">
+            <a id="comic_card" href="#"><img src="${item.thumbnail.path+'.'+item.thumbnail.extension}" class="card-img-top" alt="" style="height:34rem"></a>
+            <div class="card-body" style="height:28rem;">
               <h5 class="card-title">${item.title}</h5>
               <p style="font-size: 12px;" class="card-text mb-0">${item.description}</p>
               <p style="font-size: 12px;" class="card-text text-muted mt-1 ">Characters: ${charList} </p>
@@ -289,10 +305,8 @@ submit.addEventListener('submit', searchHero);
 random.addEventListener('click', randomHero);
 
 
-
-
-heroes.addEventListener('click', e => {
-  console.log();
+function bridgeToSingleElement (e) {
   const heroID = e.path[1].getAttribute('data-heroID')
   getHeroById(heroID)
-})
+}
+
