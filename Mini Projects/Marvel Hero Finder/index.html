@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap Library -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Awesome Font Library -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Superhero Finder</title>
+</head>
+<body>
+    
+    <div class="container" align="center">
+        <img src="deadpool/dp2.png" class="img-fluid mt-3" alt="Responsive image" width="400px">
+        <a href="index.html"><img src="Photos/Untitled.jpg" id="head_img" class="img-fluid" alt="Responsive image"></a>
+        <div class="row col-12 d-flex justify-content-center mt-3" >
+            <form id="submit">
+                <div class="input-group mb-3" >
+                    <input type="text" id="search" class="form-control" placeholder="Search...">
+                    <div class="input-group-append">
+                      <button  class="btn btn-outline-secondary" type="submit" style="background-color:white"><i class="fas fa-search"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-light ml-2" id="random">  Choose Randomly</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="mt-5" id="loading">
+            <!-- <img id="loading-image" src="https://i2.wp.com/media.boingboing.net/wp-content/uploads/2015/10/pJReN4H1.gif?w=970" alt="Loading..." /> -->
+            <img id="loading-image" src="https://media2.giphy.com/media/XDUqePoQvWHhm/source.gif" height="360px" />
+            <!-- <img id="loading-image" src="https://38.media.tumblr.com/f131c86600627a66d4dc63aba64fbcc9/tumblr_mubi08CbHL1qh5hj8o1_400.gif" alt="Loading..." /> -->
+            <!-- <img id="loading-image" src="https://file.mockplus.com/image/2018/04/fd090666-6441-43a1-9d19-9460c34d434e.gif" alt="Loading..." /> -->
+            <!-- <img id="loading-image" src="https://cdna.artstation.com/p/assets/images/images/008/904/076/original/alvin-lukas-fire.gif?1516021238" alt="Loading..." /> -->
+            <!-- <img id="loading-image" src="https://i1.wp.com/media.boingboing.net/wp-content/uploads/2015/10/oqnfwbC2.gif?w=970" alt="Loading..." /> -->
+        </div>  
+        
+        <div id="result-heading"></div>
+        <div class="heroes row mt-5 justify-content-center" id="heroes">
+          
+        </div>
+
+
+        <div class="row mt-5" id="comicSection">
+            
+        </div>
+      </div>
+      
+      <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+    <!-- Bootstrap Library -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src="easyhttp.js"></script>
+    <script src="app.js"></script>
+
+    
+</body>
+</html>
