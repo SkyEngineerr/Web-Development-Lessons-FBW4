@@ -60,7 +60,10 @@ function searchHero(e) {
                 <img class="card-img-top" src="Unknown avatars/${num}.jpg"  style="height:17rem;">
                 <div class="card-body">
                   <h5 class="card-title">${hero.name}</h5>
-                  <p class="card-text" style="font-size:1vh">There is no information about the hero. If you want to get some information about the hero, please search on Google or Wikipedia.</p>
+                  <p class="card-text" style="font-size:10px">There is no information about the hero. If you want to get some information about the hero, please search on Google or Wikipedia.</p>
+                  
+                </div>
+                <div class="card-footer w-100" style="bottom:0;">
                   <a href="#" class="btn btn-primary">See Profile</a>
                 </div>
               </div>
@@ -72,7 +75,9 @@ function searchHero(e) {
                 <img class="card-img-top" src="${hero.thumbnail.path + '.' + hero.thumbnail.extension}"  style="height:17rem;">
                 <div class="card-body">
                   <h5 class="card-title">${hero.name}</h5>
-                  <p class="card-text" style="font-size:1vh">There is no information about the hero. If you want to get some information about the hero, please search on Google or Wikipedia.</p>
+                  <p class="card-text" style="font-size:10px">There is no information about the hero. If you want to get some information about the hero, please search on Google or Wikipedia.</p>
+                </div>
+                <div class="card-footer w-100" style="bottom:0;">
                   <a href="#" class="btn btn-primary">See Profile</a>
                 </div>
               </div>
@@ -83,7 +88,9 @@ function searchHero(e) {
                 <img class="card-img-top" src="${hero.thumbnail.path + '.' + hero.thumbnail.extension}"  style="height:17rem;">
                 <div class="card-body">
                   <h5 class="card-title">${hero.name}</h5>
-                  <p class="card-text " style="font-size:1vh">${hero.description}</p>
+                  <p class="card-text " style="font-size:10px">${hero.description}</p>
+                </div>
+                <div class="card-footer w-100" style="bottom:0;">
                   <a href="#" class="btn btn-primary">See Profile</a>
                 </div>
               </div>
@@ -213,8 +220,10 @@ function randomHero(e) {
 
 //Get Hero By ID
 function getHeroById(heroID) {
+  //Clear sections
   heroes.innerHTML = '';
   comicSection.innerHTML = '';
+
   const heroid = heroID
   http.get(`https://gateway.marvel.com/v1/public/characters/${heroid}?&ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}`)
     .then(val => {
@@ -283,6 +292,7 @@ random.addEventListener('click', randomHero);
 
 
 heroes.addEventListener('click', e => {
+  console.log();
   const heroID = e.path[1].getAttribute('data-heroID')
   getHeroById(heroID)
 })
