@@ -27,12 +27,10 @@
 
 #comicCards a:link, 
 a:visited {
-    color: #ED462F;
     text-decoration: none;
     display: inline-block;
     transition: all 0.2s;
 }
-
 
 #comicCards a:hover,
 a:active {

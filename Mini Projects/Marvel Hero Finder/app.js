@@ -24,6 +24,7 @@ function searchHero(e) {
   // Clear sections
   comicSection.innerHTML = '';
   heroes.innerHTML = '';
+  resultHeading.innerHTML = '';
 
   // Get search term
   const term = search.value;
@@ -39,7 +40,6 @@ function searchHero(e) {
 
       // Check input value whether empty or not
       if (term.trim()) {
-
         //get users
         http.get(`https://gateway.marvel.com/v1/public/characters?nameStartsWith=${term}&ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}`)
           .then(val => {
@@ -102,8 +102,6 @@ function searchHero(e) {
     }, 2100);
   }
   loader()
-
-
 }
 
 //Random number function for random click button
@@ -118,6 +116,8 @@ function randomHero(e) {
   let randomID = getRandomInt(1009146, 1011143)
   console.log(randomID)
   comicSection.innerHTML = ''
+  resultHeading.innerHTML = ''
+
   let fetchNow = function () {
     http.get(`https://gateway.marvel.com/v1/public/characters/${randomID}?&ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}`)
       .then(val => {
