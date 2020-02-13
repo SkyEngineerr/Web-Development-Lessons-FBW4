@@ -48,7 +48,9 @@ function searchHero(e) {
             let num = 1
 
             if (heroesJS.length == 0) {
-              resultHeading.innerHTML = `<h4 class="mt-2 mb-0" style="color: white;">There is no character starting with "${${term}}"</h4>`;
+              resultHeading.innerHTML = `<h4 class="mt-2 mb-0" style="color: white;">There is no character starting with "${term}" </h4>
+              
+              `;
             } else if (term == 'deadpool') {
               heroes.innerHTML = `<img src="https://media0.giphy.com/media/t774Y478EoCrX6cCie/source.gif" class="img-fluid" alt="" style="width:55rem;">`
             } else {
@@ -121,7 +123,7 @@ function searchHero(e) {
         alert('Please enter a search term');
       }
 
-    }, 100);
+    }, 2100);
   }
   loader()
 }
@@ -154,7 +156,7 @@ function randomHero(e) {
             <div class="card text-center" style="width: 100rem; ">
                     <div class="row no-gutters">
                         <div class="col-auto">
-                            <img src="${hero.thumbnail.path + '.' + hero.thumbnail.extension}" class="img-fluid" alt="" style="width: 20rem;">
+                            <img src="${hero.thumbnail.path + '.' + hero.thumbnail.extension}" class="img-fluid" alt="" style="width: 23rem; height:19rem">
                         </div>
                         <div class="col text-left">
                             <div class="card-block px-2">
@@ -172,7 +174,7 @@ function randomHero(e) {
             <div class="card text-center" style="width: 100rem; ">
                     <div class="row no-gutters">
                         <div class="col-auto">
-                            <img src="${hero.thumbnail.path + '.' + hero.thumbnail.extension}" class="img-fluid" alt="" style="width: 20rem;">
+                            <img src="${hero.thumbnail.path + '.' + hero.thumbnail.extension}" class="img-fluid" alt="" style="width: 23rem; height:19rem">
                         </div>
                         <div class="col text-left">
                             <div class="card-block px-2">
@@ -239,6 +241,7 @@ function getHeroById(heroID) {
   //Clear sections
   heroes.innerHTML = '';
   comicSection.innerHTML = '';
+  resultHeading.innerHTML = '';
 
   const heroid = heroID
   http.get(`https://gateway.marvel.com/v1/public/characters/${heroid}?&ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}`)
@@ -248,7 +251,7 @@ function getHeroById(heroID) {
             <div class="card text-center" style="width: 100rem; ">
                     <div class="row no-gutters">
                         <div class="col-auto">
-                            <img src="${hero.thumbnail.path + '.' + hero.thumbnail.extension}" class="img-fluid" alt="" style="width: 20rem;">
+                            <img src="${hero.thumbnail.path + '.' + hero.thumbnail.extension}" class="img-fluid" alt="" style="width: 20rem; height:19rem">
                         </div>
                         <div class="col text-left">
                             <div class="card-block px-2">
