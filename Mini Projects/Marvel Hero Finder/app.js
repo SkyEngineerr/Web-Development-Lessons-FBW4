@@ -301,8 +301,6 @@ function getHeroById(heroID) {
     .catch(er => console.log(er))
 }
 
-
-
 //Event listeners
 submit.addEventListener('submit', searchHero);
 random.addEventListener('click', randomHero);
