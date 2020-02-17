@@ -46,6 +46,7 @@
             sed suscipit voluptate nostrum libero facilis veniam eligendi tenetur ab exercitationem.</p>
     </div>
     <hr>
+    <div id="res"></div>
     <form id="form">
         <label for="name">name</label><br>
         <input type="text" name="name" id="name">
@@ -87,13 +88,32 @@
             //     alert(e.target.className)
             // })
 
-            $(document).on('mousemove', e=>{
-                $('#coords').html('Coords: Y: ' + e.clientY + " X:" + e.clientX)
+            // $(document).on('mousemove', e=>{
+            //     $('#coords').html('Coords: Y: ' + e.clientY + " X:" + e.clientX)
+            // })
+
+            // $('input').focus(function(){
+            //     $(this).css('background', 'pink')
+            // })
+
+            // $('input').keydown(e=>{
+            //     $('#res').html('You typed letter ' + e.target.value)
+            // })
+            // $('input').keyup(e=>{
+            //     $('#res').html('You typed letter ' + e.target.value)
+            // })
+
+            // $('select#gender').change(e => {
+            //     $('#res').html('You have selected ' + e.target.value)
+            // })
+
+            $('#form').submit(e => {
+                e.preventDefault()
+                let name = $('#name').val()
+                let email = $('#email').val()
+                $('#res').html('Your name: ' + name + ' Your mail is:' + email)
             })
 
-            $('input').focus((function (){
-                $(this).css('background', 'red')
-            })
         })
     </script>
 </body>
