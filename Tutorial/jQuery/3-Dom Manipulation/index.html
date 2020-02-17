@@ -87,8 +87,8 @@
 
             $('ul#list').before('<h4>Hello</h4>')
             $('ul#list').after('<h4>Hello</h4>')
-            $('ul#list').empty()
-            $('ul#list').detach()
+            // $('ul#list').empty()
+            // $('ul#list').detach()
 
             $('a').attr('target','_blank')
             $('a').removeAttr('target')
@@ -96,12 +96,27 @@
 
             // $('.para1').wrap('<h1>')
             // $('p').wrapAll('<h1>')
-            $('#newItem').keyup((e)=>{
-                let code = e.which;
-                if(code == 13) {
-                    $('ul#users').append(`<li>${e.target.value}</li>`)
-                }
+            // $('#newItem').keyup((e)=>{
+            //     let code = e.which;
+            //     if(code == 13) {
+            //         $('ul#users').append(`<li>${e.target.value}</li>`)
+            //     }
+            // })
+
+            let filArr = ['Eren', 'Meric', 'Bahriye', 'Rifat']
+
+            $.each(filArr, (i, val) => {
+                $('ul#users').append(`<li>${val}</li>`)
             })
+
+
+            let newArr = $('ul#list li').toArray()
+
+            $.each(newArr, (i, val) => {
+                console.log(`${i} : ${val.innerHTML}`);
+            })
+
+
         })
     </script>
 </body>
