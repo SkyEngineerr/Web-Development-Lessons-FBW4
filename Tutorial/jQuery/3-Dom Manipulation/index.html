@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Events</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <style>
+        body {
+            font-size: 17px;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f4f4;
+            line-height: 1.5em;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px #000 solid;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            width: 90%;
+            padding: 10px;
+            margin: auto;
+        }
+
+        .myClass{
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>jQuery Selectors</h1>
+    </header>
+    
+    <div id="container">
+       <button id="btn1">Button 1</button>
+       <p class="para1">This is a paragraph</p>
+       <p class="para2">This is another paragraph</p>
+       <div id="myDiv"></div>
+       <input type="text" id="newItem">
+       <ul id="list">
+           <li>List item</li>
+           <li>List item</li>
+           <li>List item</li>
+           <li>List item</li>
+           <li>List item</li>
+           <li>List item</li>
+       </ul>
+       <a href="http://google.com">Google</a>
+       <ul id="users">  
+       </ul>
+    </div>
+
+    
+    
+    <script>
+        $(document).ready(function () {
+            $('.para1').css('color', 'red')
+            $('.para1').css({color:'red', background: 'yellow'})
+
+            $('.para2').addClass('myClass')
+            $('.para2').removeClass('myClass')
+
+            $('#btn1').click(()=> {
+                $('.para2').toggleClass('myClass')
+            })
+
+            $('#myDiv').text('Hello world')
+            $('#myDiv').html('<h3>Deneme Hello World</h3>')
+
+            let t = $('#myDiv').text()
+            //alert(t)
+
+            $('ul#list').append('<li>Appended List Item</li>')
+            $('ul#list').prepend('<li>Appended List Item</li>')
+
+            $('.para1').appendTo('.para2')
+            $('.para1').appendTo('.para2')
+
+        })
+    </script>
+</body>
+
+</html>
