@@ -5,13 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jQuery Selectors</title>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <style>
+        body{
+            font-size: 17px;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f4f4;
+            line-height: 1.5em;
+        }
+
+        header{
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px #000 solid;
+            margin-bottom: 10px;
+        }
+
+        .container{
+            width: 90%;
+            padding: 10px;
+            margin: auto;
+        }
+
+    </style>
 </head>
 <body>
     <header>
         <h1>jQuery Selectors</h1>
     </header>
     <div id="container">
-        
+        <h1 id="heading1">Heading 1</h1>
+        <p id="para1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut sequi ipsam vel dolorem laudantium? quisquam dolorum <span>Ab laborum at et consectetur adipisci sed facere totam, voluptate repellendus corrupti aliquam corporis, saepe, aut unde officia veniam? Corrupti, culpa veniam sapiente magnam eos non repellendus nobis? Beatae enim placeat omnis eaque nisi necessitatibus </span> nulla iste voluptatum doloribus voluptate eos aliquam cum explicabo maxime, itaque officia a, debitis voluptates quibusdam blanditiis culpa.</p>
+
+        <h1 id="heading2">Heading 2</h1>
+        <p id="para2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut sequi ipsam vel dolorem laudantium? quisquam dolorum <span>Ab laborum at et consectetur adipisci sed facere totam, voluptate repellendus corrupti aliquam corporis, saepe, aut unde officia veniam? Corrupti, culpa veniam sapiente magnam eos non repellendus nobis? Beatae enim placeat omnis eaque nisi necessitatibus </span> nulla iste voluptatum doloribus voluptate eos aliquam cum explicabo maxime, itaque officia a, debitis voluptates quibusdam blanditiis culpa.</p>
     </div>
+    <ul id="list">
+        <li>List item</li>
+        <li>List item</li>
+        <li>List item</li>
+        <li>List item</li>
+        <li>List item</li>
+        <li>List item</li>
+        <li>List item</li>
+        <li>List item</li>
+        <li>List item</li>
+    </ul>
+    <script>
+        // $('h1').hide();
+        // $('h1#heading1').hide();
+        // $('.heading2').hide();
+
+        // $('span').css('color', 'yellow')
+        $('#para1 span').css('color', 'yellow')
+        $('ul#list li:first').css('color', 'blue')
+
+    </script>
 </body>
 </html>
