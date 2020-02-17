@@ -52,14 +52,30 @@
         <li>List item</li>
         <li>List item</li>
     </ul>
+
+    <input type="button" value="Button 1">
+    <input type="submit" value="Submit">
+    <input type="text">
+
+    <a href="http://google.com" target="_blank" rel="noopener noreferrer">Goodle</a>
+    <a href="http://yahoo.com" target="_blank" rel="noopener noreferrer">Yahoo</a>
+
     <script>
         // $('h1').hide();
         // $('h1#heading1').hide();
         // $('.heading2').hide();
 
         // $('span').css('color', 'yellow')
-        $('#para1 span').css('color', 'yellow')
-        $('ul#list li:first').css('color', 'blue')
+        // $('#para1 span').css('color', 'yellow')
+        // $('ul#list li:first').css('color', 'blue')
+        // $('ul#list li:last').css('color', 'red')
+        $('ul#list li:odd').css('color', 'blue')
+        $('ul#list li:even').css('color', 'red')
+        $('ul#list li:nth-child(3n').css('color', 'orange')
+
+        $(':text').hide()
+        $('[href]').css('color', 'red')
+        $('a[href="http://yahoo.com"]').css('color', 'green')
 
     </script>
 </body>
