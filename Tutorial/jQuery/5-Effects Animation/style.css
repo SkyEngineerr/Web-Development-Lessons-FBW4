@@ -40,3 +40,7 @@ header {
     text-align: center;
 }
 
+#mario {
+    position: relative;
+}
+

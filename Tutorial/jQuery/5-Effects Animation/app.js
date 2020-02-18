@@ -57,4 +57,24 @@ $(document).ready(()=>{
         })
     })
 
+    $('#marioBtn').click(()=>{
+        let mario = $('#mario')
+        console.log(mario);
+        mario.animate({
+            left:300
+        })
+        mario.animate({
+            top:-300
+        })
+        mario.animate({
+            left:200
+        })
+        mario.animate({
+            top:0,
+            left:0
+        })
+  
+    })
+
+
 })
