@@ -70,7 +70,7 @@ $(document).ready(()=>{
             left:200
         })
         mario.animate({
-            top:0,
+            top:200,
             left:0
         })
   
