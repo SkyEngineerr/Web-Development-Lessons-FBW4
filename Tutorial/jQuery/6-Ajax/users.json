@@ -1,0 +1,28 @@
+[
+    {
+        "firsName": "eren",
+        "lastName": "yilmaz",
+        "email": "erenyilmaz@gmail.com"
+
+    },
+    {
+        "firsName": "seyma",
+        "lastName": "yilmaz",
+        "email": "seymayilmaz@gmail.com"
+    },
+    {
+        "firsName": "rifat",
+        "lastName": "yilmaz",
+        "email": "rifatyilmaz@gmail.com"
+    },
+    {
+        "firsName": "betus",
+        "lastName": "yilmaz",
+        "email": "betusyilmaz@gmail.com"
+    },
+    {
+        "firsName": "bahriye",
+        "lastName": "yilmaz",
+        "email": "bahriyeyilmaz@gmail.com"
+    }
+]
