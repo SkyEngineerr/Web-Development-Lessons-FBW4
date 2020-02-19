@@ -11,12 +11,13 @@ class Person {
 }
 
 
-function letHimSayhisname (human) {
-    human.sayMyName()
+function makeHimSayhisname (human) {
+    return human.sayMyName()
 }
 
-function letHimSayherage (human) {
+function makeHimSayherage (human) {
     return human.age
 }
 
+export {makeHimSayhisname, makeHimSayherage}
 export default Person;
