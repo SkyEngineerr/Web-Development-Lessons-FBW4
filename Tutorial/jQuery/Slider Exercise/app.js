@@ -27,3 +27,18 @@
 
 
 // })
+
+$(document).ready(()=>{
+    
+
+    $('#btnRight').click(()=>{
+       
+    })
+
+    
+    $('#btnLeft').click(()=>{
+       
+    })
+
+
+})
