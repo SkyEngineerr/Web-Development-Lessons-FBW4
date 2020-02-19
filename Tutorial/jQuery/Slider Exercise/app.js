@@ -29,8 +29,6 @@
 // })
 
 $(document).ready(()=>{
-    
-
     $('#btnRight').click(()=>{
        
     })
@@ -39,6 +37,4 @@ $(document).ready(()=>{
     $('#btnLeft').click(()=>{
        
     })
-
-
 })
