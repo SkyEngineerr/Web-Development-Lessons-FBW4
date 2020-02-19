@@ -27,17 +27,48 @@
 //     document.body.append(el)
 // }
 
-export {addPerson}
+export {addPerson, deletePerson, changePerson}
 
-let ul = document.createElement('ul')
-document.body.appendChild(ul)
-let newArr = [];
+let ul = document.getElementById('List')
+let persons = [];
 
 function addPerson (person) {
-    newArr.push(person)
+    
+    persons.push(person)
     let li = document.createElement('li')
     li.innerHTML = person
+    li.className = "listItem"
     ul.appendChild(li)
+    console.log(persons);
 }
 
-console.log(newArr);
+function deletePerson (person) {
+    console.log(persons);
+  persons.forEach((element, i) => {
+      if(person == element) {
+          persons.splice(i, 1)
+      }
+  });
+  let listItems = document.getElementsByClassName('listItem')
+  for (let item of listItems) {
+      if(person == item.innerHTML){
+          item.style.display = 'none'
+      }
+  }
+}
+
+function changePerson (person, newPerson) {
+  persons.forEach((element, i) => {
+      if(person == element) {
+          element = newPerson
+      }
+  });
+  let listItems = document.getElementsByClassName('listItem')
+  for (let item of listItems) {
+      if(person == item.innerHTML){
+          item.innerHTML = newPerson
+      }
+  }
+  console.log(persons);
+}
+

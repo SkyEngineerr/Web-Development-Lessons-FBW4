@@ -10,7 +10,10 @@
 // import {square, makeElement} from "./user.js"
 // makeElement('h3', square(), 'red')
 
-import {addPerson} from "./user.js"
+import {addPerson, deletePerson, changePerson} from "./user.js"
 
 addPerson('EREN')
-addPerson('deneme')
+addPerson('RIFAT')
+addPerson('MERIC')
+deletePerson('RIFAT')
+changePerson('EREN','SEYMA')
