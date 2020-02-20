@@ -1,6 +1,6 @@
-let section2 = document.createElement('section')
+export let section2 = document.createElement('section')
 
-class Section {
+export class Section {
     constructor (item1, item2, item3){
         this.item1 = item1;
         this.item2 = item2;
@@ -28,5 +28,5 @@ class Section {
 }
 
 
-export {Section, section2};
+
 

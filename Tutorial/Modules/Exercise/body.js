@@ -1,12 +1,12 @@
 import {Section, section2} from './section.js'
 
 
-let section = new Section ('Home Page', 'orange', 'deneme')
-
-section.createSection();
+export let section = new Section ('Home Page', 'orange', 'deneme')
 
 
-class Article {
+
+
+export class Article {
     constructor (){
     }
     createArticle () {
@@ -21,4 +21,3 @@ class Article {
     }
 }
 
-export {section, Article}

@@ -1,4 +1,4 @@
-class Footer {
+export class Footer {
     constructor (){
 
     }
@@ -12,4 +12,3 @@ class Footer {
     }
 }
 
-export default Footer;

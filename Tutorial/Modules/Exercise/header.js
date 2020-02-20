@@ -1,4 +1,4 @@
-class Header {
+export class Header {
     constructor (title, background){
         this.title = title;
         this.background = background;
@@ -13,4 +13,3 @@ class Header {
     }
 }
 
-export default Header;
