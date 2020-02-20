@@ -1,5 +1,6 @@
 import {Section, section2} from './section.js'
 
+
 let section = new Section ('Home Page', 'orange', 'deneme')
 
 section.createSection();
