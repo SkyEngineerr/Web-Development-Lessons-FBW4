@@ -1,10 +1,14 @@
 import React, { Component } from "react";
-//import logo from './logo.svg';
 import "./App.css";
+import Navbar from "./components/layout/Navbar";
 
 class App extends Component {
   render() {
-    return <header className='App'> Hello Fbw4 </header>;
+    return (
+      <div>
+        <Navbar title='User Search' icon='fa fa-github' />
+      </div>
+    );
   }
 }
 
