@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import "./App.css";
 import Navbar from "./components/layout/Navbar";
-import Dropdown from "./components/dropdown/Dropdown";
+import Body from "./components/body/Body";
+import Footer from "./components/footer/Footer";
 
 class App extends Component {
   render() {
     return (
       <div>
         <Navbar />
-        <Dropdown />
+        <Body />
+        <Footer />
       </div>
     );
   }
