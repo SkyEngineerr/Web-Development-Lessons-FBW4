@@ -1,11 +1,11 @@
 //rce tab
-import React, { Component } from 'react';
-import './article.css';
+import React, { Component } from "react";
+import "./article.css";
 
 class Article extends Component {
   //state Object
   state = {
-    InputValue: ''
+    InputValue: ""
   };
   // passing an Object
   ChangeTitle(ev) {
@@ -16,7 +16,10 @@ class Article extends Component {
   render() {
     // predefined name
     return (
-      <div className='Article'>
+      <div
+        className='Article'
+        style={{ backgroundColor: `{this.state.InputValue}` }}
+      >
         <input
           type='text'
           id='inpt'
