@@ -4,10 +4,13 @@ import Navbar from "./components/layout/Navbar.jsx";
 import axios from "axios";
 import Users from "./components/users/Users.jsx";
 class App extends Component {
-  state = {};
+  state = {
+    users: []
+  };
   async componentDidMount() {
     const res = await axios.get("https://api.github.com/users");
     console.log(res.data);
+    this.setState({ users: res.data });
   }
   render() {
     //const title = 'User Search';
@@ -15,7 +18,7 @@ class App extends Component {
     return (
       <div>
         <Navbar />
-        <Users />
+        <Users users={this.state.users} />
       </div>
     );
   }
