@@ -12,14 +12,34 @@ class App extends Component {
       { id: 3, title: "third item" }
     ]
   };
+
+  Changetitle(title) {
+    this.setState({
+      value: title
+    });
+  }
+
+  showHandler() {
+    this.setState(x => ({
+      show: !x.show
+    }));
+  }
+
   render() {
     const list = this.state.data.map(item => {
-      return <li key={item.id}>{item.title}</li>;
+      return (
+        <li key={item.id} onClick={() => this.Changetitle(item.title)}>
+          {item.title}
+        </li>
+      );
     });
     return (
       <div className='wrapper'>
         {this.state.show ? <TitleHeader newTitle={this.state.value} /> : null}
-        <ul className='list'>{list}</ul>
+        <ul className='lDEist'>{list}</ul>
+        <button className='btn' onClick={() => this.showHandler()}>
+          Show and Hide
+        </button>
       </div>
     );
   }
