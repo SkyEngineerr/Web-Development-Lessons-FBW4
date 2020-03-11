@@ -1,4 +1,6 @@
-import React, { Component } from "react";
+import React, {
+  Component
+} from "react";
 import "./body.css";
 import LeftSide from "../LeftSide/leftSide";
 import RightSide from "../RigthSide/rightSide";
@@ -15,12 +17,20 @@ class Body extends Component {
   };
 
   render() {
-    return (
-      <div className='Body'>
-        <LeftSide newTitle={this.state.title} />
-        <Article messageToApp={this.Handlemeassage} />
-        <RightSide />
-      </div>
+    return ( <
+      div className = 'Body' >
+      <
+      LeftSide newTitle = {
+        this.state.title
+      }
+      /> <
+      Article messageToApp = {
+        this.Handlemeassage
+      }
+      /> <
+      RightSide / >
+      <
+      /div>
     );
   }
 }
