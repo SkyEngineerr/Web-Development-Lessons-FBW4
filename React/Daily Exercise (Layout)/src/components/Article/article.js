@@ -12,13 +12,16 @@ class Article extends Component {
     this.setState({
       InputValue: ev.target.value
     });
+    this.props.messageToApp(ev.target.value);
   }
   render() {
     // predefined name
     return (
       <div
         className='Article'
-        style={{ backgroundColor: `{this.state.InputValue}` }}
+        style={{
+          backgroundColor: `{this.state.InputValue}`
+        }}
       >
         <input
           type='text'
@@ -28,12 +31,12 @@ class Article extends Component {
           onChange={e => {
             this.ChangeTitle(e);
           }}
-        />
-        <h2 id='title'>{this.state.InputValue}</h2>
+        />{" "}
+        <h2 id='title'> {this.state.InputValue} </h2>{" "}
         <p>
-          this is an example of class compnents using only normal JS ES6 modules
-        </p>
-        <p>we will test the module export and import capabilities</p>
+          this is an example of class compnents using only normal JS ES6 modules{" "}
+        </p>{" "}
+        <p> we will test the module export and import capabilities </p>{" "}
       </div>
     );
   }

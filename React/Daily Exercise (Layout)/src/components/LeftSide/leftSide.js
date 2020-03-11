@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import './leftSide.css';
+import React, { Component } from "react";
+import "./leftSide.css";
 
 class LeftSide extends Component {
   render() {
     return (
       <div className='LeftSide'>
         <ul>
+          <li>{this.props.newTitle}</li>
           <li>
             <img
               src='https://simply-communicate.com/wp-content/uploads/2019/03/facebook-2661207_960_720.jpg'
